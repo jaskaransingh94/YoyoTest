@@ -1,0 +1,9 @@
+D:\.Net\YoyoTest\YoyoTest.Ioc\bin\Debug\netcoreapp3.1\YoyoTest.Ioc.deps.json
+D:\.Net\YoyoTest\YoyoTest.Ioc\bin\Debug\netcoreapp3.1\YoyoTest.Ioc.dll
+D:\.Net\YoyoTest\YoyoTest.Ioc\bin\Debug\netcoreapp3.1\YoyoTest.Ioc.pdb
+D:\.Net\YoyoTest\YoyoTest.Ioc\obj\Debug\netcoreapp3.1\YoyoTest.Ioc.csprojAssemblyReference.cache
+D:\.Net\YoyoTest\YoyoTest.Ioc\obj\Debug\netcoreapp3.1\YoyoTest.Ioc.AssemblyInfoInputs.cache
+D:\.Net\YoyoTest\YoyoTest.Ioc\obj\Debug\netcoreapp3.1\YoyoTest.Ioc.AssemblyInfo.cs
+D:\.Net\YoyoTest\YoyoTest.Ioc\obj\Debug\netcoreapp3.1\YoyoTest.Ioc.csproj.CoreCompileInputs.cache
+D:\.Net\YoyoTest\YoyoTest.Ioc\obj\Debug\netcoreapp3.1\YoyoTest.Ioc.dll
+D:\.Net\YoyoTest\YoyoTest.Ioc\obj\Debug\netcoreapp3.1\YoyoTest.Ioc.pdb
