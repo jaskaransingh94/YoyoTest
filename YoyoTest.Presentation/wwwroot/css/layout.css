@@ -1,0 +1,12 @@
+﻿html, body, button {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1rem;
+}
+
+.is-size-1-2 {
+    font-size: 1.2rem
+}
+
+.m-auto {
+    margin: auto
+}

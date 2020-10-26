@@ -1,13 +1,4 @@
-﻿html, body, button {
-    font-family: 'Poppins', sans-serif !important;
-    font-size: 1rem;
-}
-
-.is-size-1-2 {
-    font-size: 1.2rem
-}
-
-.button {
+﻿.button {
     height: 1.5em;
     padding-left: 0.5em;
     padding-right: 0.5em;
@@ -28,10 +19,6 @@ a.dropdown-item {
 
 .timer-height {
     height: 20em
-}
-
-.m-auto {
-    margin: auto
 }
 
 .whitespace-wrap {
