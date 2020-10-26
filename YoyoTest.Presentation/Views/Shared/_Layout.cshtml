@@ -4,33 +4,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - YoyoTest</title>
+
     <link href="~/lib/bulma/css/bulma.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;1,200&display=swap" rel="stylesheet">
-    <style>
-        html, body, button {
-            font-family: 'Poppins', sans-serif !important;
-            font-size: 1rem;
-        }
-        .is-size-1-2 {
-            font-size: 1.2rem
-        }
-    </style>
 
 </head>
 <body>
-    <nav class="navbar is-transparent">
+    <nav class="navbar is-transparent mb-2 mt-2">
         <div class="navbar-brand">
             <a class="navbar-item">
                 <i class="fa fa-angle-left is-size-1-2 has-text-info" aria-hidden="true"></i>
             </a>
-            <a class="navbar-item has-text-weight-bold">
+            <span class="navbar-item has-text-weight-bold m-auto">
                 YoYo Test
-            </a>
+            </span>
         </div>
     </nav>
+
     <main class="container is-fluid">
         @RenderBody()
     </main>
+
     <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
