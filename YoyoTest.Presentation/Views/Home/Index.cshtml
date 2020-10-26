@@ -1,3 +1,73 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "YoYo Test";
 }
+<section class="columns is-multiline is-tab">
+</section>
+
+<section class="columns is-mobile">
+    <div class="column has-background-black">1</div>
+    <div class="column has-background-danger">1</div>
+    <div class="column has-background-grey">1</div>
+</section>
+
+<section class="columns is-multiline is-tab">
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+        <div class="is-flex is-flex-direction-row">
+            <div>Name 1</div>
+            <div class="dropdown">
+                <div class="dropdown-trigger">
+                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+                        <span>Click me</span>
+                        <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                    <div class="dropdown-content">
+                        <a href="#" class="dropdown-item">
+                            Overview
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            Modifiers
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            Grid
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            Form
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            Elements
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            Components
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            Layout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+        <div class="is-flex is-flex-direction-row">
+            <div>Name 2</div>
+            <div>
+                <span class="tag is-info is-rounded">Info</span>
+                <span class="tag is-danger is-rounded">Danger</span>
+            </div>
+        </div>
+    </div>
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">1</div>
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">1</div>
+</section>
+
+<script>
+    document.querySelectorAll('.dropdown').forEach(item => {
+        item.addEventListener('click', event => {
+            event.currentTarget.classList.toggle("is-active");
+        })
+    })
+</script>

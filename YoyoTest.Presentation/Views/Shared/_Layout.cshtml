@@ -4,21 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - YoyoTest</title>
+    <link href="~/lib/bulma/css/bulma.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            YoyoTest1
-        </div>
-    </footer>
+    <main class="container is-fluid">
+        @RenderBody()
+    </main>
+    <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
