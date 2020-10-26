@@ -1,23 +1,73 @@
 ﻿@{
     ViewData["Title"] = "YoYo Test";
 }
+
+<style>
+    .button {
+        height: 1.5em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        border: none
+    }
+
+    a.dropdown-item {
+        padding-right: 1rem
+    }
+
+    .dropdown.is-active .dropdown-menu, .dropdown.is-hoverable:hover .dropdown-menu {
+        display: flex
+    }
+
+    .vertical-divider {
+    
+    }
+</style>
+
 <section class="columns is-multiline is-tab">
 </section>
 
 <section class="columns is-mobile">
-    <div class="column has-background-black">1</div>
-    <div class="column has-background-danger">1</div>
-    <div class="column has-background-grey">1</div>
+    <div class="column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+        <div class="has-text-grey-light">
+            NEXT SHUTTLE
+        </div>
+        <div class="has-text-primary-dark">
+            0:00 s
+        </div>
+    </div>
+    <div class="column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+        <div class="has-text-grey-light">
+            TOTAL TIME
+        </div>
+        <div class="has-text-primary-dark">
+            0:00 m
+        </div>
+    </div>
+    <div class="column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+        <div class="has-text-grey-light">
+            TOTAL DISTANCE
+        </div>
+        <div class="has-text-primary-dark">
+            0:00 m
+        </div>
+    </div>
+</section>
+
+<section class="is-flex is-flex-direction-column mb-4">
+    <div class="has-text-primary-dark has-text-weight-bold">
+        Track
+    </div>
+    <div class="dropdown-divider has-background-grey-light"></div>
 </section>
 
 <section class="columns is-multiline is-tab">
     <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-        <div class="is-flex is-flex-direction-row">
-            <div>Name 1</div>
+        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+            <div>Ashton Eaton</div>
             <div class="dropdown">
                 <div class="dropdown-trigger">
-                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
-                        <span>Click me</span>
+                    <button class="button is-shadowless" aria-haspopup="true" aria-controls="dropdown-menu3">
+                        <span>11-3</span>
                         <span class="icon is-small">
                             <i class="fas fa-angle-down" aria-hidden="true"></i>
                         </span>
@@ -26,43 +76,57 @@
                 <div class="dropdown-menu" id="dropdown-menu3" role="menu">
                     <div class="dropdown-content">
                         <a href="#" class="dropdown-item">
-                            Overview
+                            18-9
                         </a>
                         <a href="#" class="dropdown-item">
-                            Modifiers
+                            16-3
                         </a>
                         <a href="#" class="dropdown-item">
-                            Grid
+                            20-3
                         </a>
                         <a href="#" class="dropdown-item">
-                            Form
-                        </a>
-                        <a href="#" class="dropdown-item">
-                            Elements
-                        </a>
-                        <a href="#" class="dropdown-item">
-                            Components
-                        </a>
-                        <a href="#" class="dropdown-item">
-                            Layout
+                            9-3
                         </a>
                     </div>
                 </div>
             </div>
+            @*<div class="vertical-divider"></div>*@
         </div>
+        <div class="dropdown-divider has-background-grey-lighter"></div>
     </div>
+
     <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-        <div class="is-flex is-flex-direction-row">
-            <div>Name 2</div>
+        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+            <div>Ashton Eaton</div>
             <div>
-                <span class="tag is-info is-rounded">Info</span>
-                <span class="tag is-danger is-rounded">Danger</span>
+                <span class="tag is-info is-rounded">Warn</span>
+                <span class="tag is-danger is-rounded ml-2">Stop</span>
             </div>
         </div>
+        <div class="dropdown-divider has-background-grey-lighter"></div>
     </div>
-    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">1</div>
-    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">1</div>
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+            <div>Ashton Eaton</div>
+            <div>
+                <span class="tag is-info is-rounded has-background-grey-light">Warned</span>
+                <span class="tag is-danger is-rounded ml-2">Stop</span>
+            </div>
+        </div>
+        <div class="dropdown-divider has-background-grey-lighter"></div>
+    </div>
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+            <div>Ashton Eaton</div>
+        </div>
+        <div class="dropdown-divider has-background-grey-lighter"></div>
+    </div>
 </section>
+
+<section class="is-flex is-flex-direction-column mb-4">
+    <div class="dropdown-divider has-background-grey-light"></div>
+</section>
+
 
 <script>
     document.querySelectorAll('.dropdown').forEach(item => {
