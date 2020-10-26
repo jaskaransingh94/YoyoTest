@@ -19,35 +19,45 @@
     }
 
     .vertical-divider {
-    
+        border-right: 2px #dbdbdb solid;
     }
+
 </style>
 
-<section class="columns is-multiline is-tab">
+<section>
 </section>
 
-<section class="columns is-mobile">
-    <div class="column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-        <div class="has-text-grey-light">
-            NEXT SHUTTLE
+<section class="columns is-mobile is-flex is-flex-direction-row is-justify-content-space-between mb-5">
+    <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+        <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
+            <div> NEXT</div> <div>SHUTTLE</div>
         </div>
-        <div class="has-text-primary-dark">
+        <div class="has-text-grey-light is-flex is-hidden-mobile">
+            <div> NEXT</div> <div class="ml-2">SHUTTLE</div>
+        </div>
+        <div class="has-text-primary-dark is-size-1-2">
             0:00 s
         </div>
     </div>
-    <div class="column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-        <div class="has-text-grey-light">
-            TOTAL TIME
+    <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+        <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
+            <div> TOTAL</div> <div>TIME</div>
         </div>
-        <div class="has-text-primary-dark">
+        <div class="has-text-grey-light is-flex is-hidden-mobile">
+            <div> TOTAL</div> <div class="ml-2">TIME</div>
+        </div>
+        <div class="has-text-primary-dark is-size-1-2">
             0:00 m
         </div>
     </div>
     <div class="column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-        <div class="has-text-grey-light">
-            TOTAL DISTANCE
+        <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
+            <div> TOTAL</div> <div>DISTANCE</div>
         </div>
-        <div class="has-text-primary-dark">
+        <div class="has-text-grey-light is-flex is-hidden-mobile">
+            <div> TOTAL</div> <div class="ml-2">DISTANCE</div>
+        </div>
+        <div class="has-text-primary-dark is-size-1-2">
             0:00 m
         </div>
     </div>
@@ -63,7 +73,10 @@
 <section class="columns is-multiline is-tab">
     <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
         <div class="is-flex is-flex-direction-row is-justify-content-space-between">
-            <div>Ashton Eaton</div>
+            <div class="is-flex is-flex-direction-row">
+                <div class="has-text-info has-text-weight-bold mr-2">1.</div>
+                <div>Ashton Eaton</div>
+            </div>
             <div class="dropdown">
                 <div class="dropdown-trigger">
                     <button class="button is-shadowless" aria-haspopup="true" aria-controls="dropdown-menu3">
@@ -90,14 +103,16 @@
                     </div>
                 </div>
             </div>
-            @*<div class="vertical-divider"></div>*@
         </div>
         <div class="dropdown-divider has-background-grey-lighter"></div>
     </div>
 
     <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
         <div class="is-flex is-flex-direction-row is-justify-content-space-between">
-            <div>Ashton Eaton</div>
+            <div class="is-flex is-flex-direction-row">
+                <div class="has-text-info has-text-weight-bold mr-2">2.</div>
+                <div>Ashton Eaton</div>
+            </div>
             <div>
                 <span class="tag is-info is-rounded">Warn</span>
                 <span class="tag is-danger is-rounded ml-2">Stop</span>
@@ -105,9 +120,13 @@
         </div>
         <div class="dropdown-divider has-background-grey-lighter"></div>
     </div>
+
     <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
         <div class="is-flex is-flex-direction-row is-justify-content-space-between">
-            <div>Ashton Eaton</div>
+            <div class="is-flex is-flex-direction-row">
+                <div class="has-text-info has-text-weight-bold mr-2">3.</div>
+                <div>Ashton Eaton</div>
+            </div>
             <div>
                 <span class="tag is-info is-rounded has-background-grey-light">Warned</span>
                 <span class="tag is-danger is-rounded ml-2">Stop</span>
@@ -115,12 +134,93 @@
         </div>
         <div class="dropdown-divider has-background-grey-lighter"></div>
     </div>
+
     <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
         <div class="is-flex is-flex-direction-row is-justify-content-space-between">
-            <div>Ashton Eaton</div>
+            <div class="is-flex is-flex-direction-row">
+                <div class="has-text-info has-text-weight-bold mr-2">4.</div>
+                <div>Ashton Eaton</div>
+            </div>
         </div>
         <div class="dropdown-divider has-background-grey-lighter"></div>
     </div>
+
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+            <div class="is-flex is-flex-direction-row">
+                <div class="has-text-info has-text-weight-bold mr-2">2.</div>
+                <div>Ashton Eaton</div>
+            </div>
+            <div>
+                <span class="tag is-info is-rounded">Warn</span>
+                <span class="tag is-danger is-rounded ml-2">Stop</span>
+            </div>
+        </div>
+        <div class="dropdown-divider has-background-grey-lighter"></div>
+    </div>
+
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+            <div class="is-flex is-flex-direction-row">
+                <div class="has-text-info has-text-weight-bold mr-2">3.</div>
+                <div>Ashton Eaton</div>
+            </div>
+            <div>
+                <span class="tag is-info is-rounded has-background-grey-light">Warned</span>
+                <span class="tag is-danger is-rounded ml-2">Stop</span>
+            </div>
+        </div>
+        <div class="dropdown-divider has-background-grey-lighter"></div>
+    </div>
+
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+            <div class="is-flex is-flex-direction-row">
+                <div class="has-text-info has-text-weight-bold mr-2">4.</div>
+                <div>Ashton Eaton</div>
+            </div>
+        </div>
+        <div class="dropdown-divider has-background-grey-lighter"></div>
+    </div>
+
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+            <div class="is-flex is-flex-direction-row">
+                <div class="has-text-info has-text-weight-bold mr-2">2.</div>
+                <div>Ashton Eaton</div>
+            </div>
+            <div>
+                <span class="tag is-info is-rounded">Warn</span>
+                <span class="tag is-danger is-rounded ml-2">Stop</span>
+            </div>
+        </div>
+        <div class="dropdown-divider has-background-grey-lighter"></div>
+    </div>
+
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+            <div class="is-flex is-flex-direction-row">
+                <div class="has-text-info has-text-weight-bold mr-2">3.</div>
+                <div>Ashton Eaton</div>
+            </div>
+            <div>
+                <span class="tag is-info is-rounded has-background-grey-light">Warned</span>
+                <span class="tag is-danger is-rounded ml-2">Stop</span>
+            </div>
+        </div>
+        <div class="dropdown-divider has-background-grey-lighter"></div>
+    </div>
+
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+            <div class="is-flex is-flex-direction-row">
+                <div class="has-text-info has-text-weight-bold mr-2">4.</div>
+                <div>Ashton Eaton</div>
+            </div>
+        </div>
+        <div class="dropdown-divider has-background-grey-lighter"></div>
+    </div>
+
 </section>
 
 <section class="is-flex is-flex-direction-column mb-4">

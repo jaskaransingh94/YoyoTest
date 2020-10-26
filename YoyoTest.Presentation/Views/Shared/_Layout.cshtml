@@ -11,10 +11,23 @@
             font-family: 'Poppins', sans-serif !important;
             font-size: 1rem;
         }
+        .is-size-1-2 {
+            font-size: 1.2rem
+        }
     </style>
 
 </head>
 <body>
+    <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+            <a class="navbar-item">
+                <i class="fa fa-angle-left is-size-1-2 has-text-info" aria-hidden="true"></i>
+            </a>
+            <a class="navbar-item has-text-weight-bold">
+                YoYo Test
+            </a>
+        </div>
+    </nav>
     <main class="container is-fluid">
         @RenderBody()
     </main>
