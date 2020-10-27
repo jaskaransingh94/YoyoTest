@@ -15,33 +15,34 @@
     font-size: 5rem
 }
 
+@media screen and (max-width: 350px) {
+    .circle-moble {
+        flex: none;
+        width: 90%;
+        height: 12rem;
+    }
+}
+
 @media screen and (max-width: 500px) and (min-width: 350px) {
     .circle-moble {
         flex: none;
-        width: 60%;
-        height: 10rem;
+        width: 70%;
+        height: 12rem;
     }
 }
 
-@media screen and (max-width: 500px) and (min-width: 351px) {
-    .circle-moble {
-        flex: none;
-        width: 85%;
-        height: 10rem;
-    }
-}
-
-@media screen and (max-width: 768px) and (min-width: 501px) {
+@media screen and (max-width: 625px) and (min-width: 501px) {
     .circle-moble {
         flex: none;
         width: 60%;
-        height: 10rem;
+        height: 15rem;
     }
 }
 
 @media screen and (max-width: 768px) and (min-width: 625px) {
     .circle-moble {
         flex: none;
-        width: 50%;
+        width: 40%;
+        height: 12rem;
     }
 }
