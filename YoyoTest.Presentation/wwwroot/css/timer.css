@@ -1,0 +1,47 @@
+﻿
+.timer-height {
+    /*height: 20em*/
+}
+
+.circle {
+    background: #ffffff;
+    box-shadow: 1rem 1rem 2rem #dbdbdb, -1rem -1rem #ffffff;
+    border-radius: 50%;
+    height: 15rem;
+    width: 15rem;
+}
+
+.is-size-5-custom {
+    font-size: 5rem
+}
+
+@media screen and (max-width: 500px) and (min-width: 350px) {
+    .circle-moble {
+        flex: none;
+        width: 60%;
+        height: 10rem;
+    }
+}
+
+@media screen and (max-width: 500px) and (min-width: 351px) {
+    .circle-moble {
+        flex: none;
+        width: 85%;
+        height: 10rem;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 501px) {
+    .circle-moble {
+        flex: none;
+        width: 60%;
+        height: 10rem;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 625px) {
+    .circle-moble {
+        flex: none;
+        width: 50%;
+    }
+}
