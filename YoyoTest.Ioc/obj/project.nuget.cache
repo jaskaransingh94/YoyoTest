@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "d76V7IL6mh2egwR+J5E900zzMlNG9Xsqcb9vc/OiYzHf0NQQRE9vQTo/l0D9Lw1s3nguPrFNfEwjrzCSqkvtxw==",
+  "dgSpecHash": "ZcdYMikX13itDBhY6dDmOAeunGWGKw7IhVpx9VjRdD8Di8FXIDKr3HvWbpegtLLLaHtL6mM+UAh4XBWtLqqfGw==",
   "success": true,
   "projectFilePath": "D:\\.Net\\YoyoTest\\YoyoTest.Ioc\\YoyoTest.Ioc.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\cassy\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.9\\microsoft.extensions.dependencyinjection.3.1.9.nupkg.sha512",
+    "C:\\Users\\cassy\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.9\\microsoft.extensions.dependencyinjection.abstractions.3.1.9.nupkg.sha512",
+    "C:\\Users\\cassy\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

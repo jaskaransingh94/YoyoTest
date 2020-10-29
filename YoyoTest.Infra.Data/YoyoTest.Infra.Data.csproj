@@ -5,9 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="jsconfig1.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Context\" />
     <Folder Include="Migrations\" />
-    <Folder Include="Respository\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YoyoTest.Domain\YoyoTest.Domain.csproj" />
   </ItemGroup>
 
 </Project>

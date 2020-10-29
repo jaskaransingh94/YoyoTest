@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HsONNJyIwnvqDxH8qVzXqWdHKvJPfnDWr80qXJvh/TsjWYCFtJkQKLl3pW/Fm0GQ0vclhHIoHCqFo8z0Xtq9kg==",
+  "dgSpecHash": "pTTgTITB5ma/lW2B83BynjfwdRs/AB20NWOcgSixKcOzdzk2zslrQauNUZGlR52SshvLpp1HokkWGk21boNQGw==",
   "success": true,
   "projectFilePath": "D:\\.Net\\YoyoTest\\YoyoTest.Infra.Data\\YoyoTest.Infra.Data.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\cassy\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

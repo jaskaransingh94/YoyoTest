@@ -1,9 +1,12 @@
 D:\.Net\YoyoTest\YoyoTest.Infra.Data\bin\Debug\netcoreapp3.1\YoyoTest.Infra.Data.deps.json
 D:\.Net\YoyoTest\YoyoTest.Infra.Data\bin\Debug\netcoreapp3.1\YoyoTest.Infra.Data.dll
 D:\.Net\YoyoTest\YoyoTest.Infra.Data\bin\Debug\netcoreapp3.1\YoyoTest.Infra.Data.pdb
+D:\.Net\YoyoTest\YoyoTest.Infra.Data\bin\Debug\netcoreapp3.1\YoyoTest.Domain.dll
+D:\.Net\YoyoTest\YoyoTest.Infra.Data\bin\Debug\netcoreapp3.1\YoyoTest.Domain.pdb
 D:\.Net\YoyoTest\YoyoTest.Infra.Data\obj\Debug\netcoreapp3.1\YoyoTest.Infra.Data.csprojAssemblyReference.cache
 D:\.Net\YoyoTest\YoyoTest.Infra.Data\obj\Debug\netcoreapp3.1\YoyoTest.Infra.Data.AssemblyInfoInputs.cache
 D:\.Net\YoyoTest\YoyoTest.Infra.Data\obj\Debug\netcoreapp3.1\YoyoTest.Infra.Data.AssemblyInfo.cs
 D:\.Net\YoyoTest\YoyoTest.Infra.Data\obj\Debug\netcoreapp3.1\YoyoTest.Infra.Data.csproj.CoreCompileInputs.cache
+D:\.Net\YoyoTest\YoyoTest.Infra.Data\obj\Debug\netcoreapp3.1\YoyoTest.Infra.Data.csproj.CopyComplete
 D:\.Net\YoyoTest\YoyoTest.Infra.Data\obj\Debug\netcoreapp3.1\YoyoTest.Infra.Data.dll
 D:\.Net\YoyoTest\YoyoTest.Infra.Data\obj\Debug\netcoreapp3.1\YoyoTest.Infra.Data.pdb

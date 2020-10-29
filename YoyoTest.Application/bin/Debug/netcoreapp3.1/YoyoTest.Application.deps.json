@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "YoyoTest.Application/1.0.0": {
+        "dependencies": {
+          "YoyoTest.Domain": "1.0.0"
+        },
         "runtime": {
           "YoyoTest.Application.dll": {}
+        }
+      },
+      "YoyoTest.Domain/1.0.0": {
+        "runtime": {
+          "YoyoTest.Domain.dll": {}
         }
       }
     }
   },
   "libraries": {
     "YoyoTest.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "YoyoTest.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

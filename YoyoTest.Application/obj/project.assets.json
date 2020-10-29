@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "YoyoTest.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/YoyoTest.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/YoyoTest.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "YoyoTest.Domain/1.0.0": {
+      "type": "project",
+      "path": "../YoyoTest.Domain/YoyoTest.Domain.csproj",
+      "msbuildProject": "../YoyoTest.Domain/YoyoTest.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "YoyoTest.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\cassy\\.nuget\\packages\\": {},
@@ -36,7 +55,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\.Net\\YoyoTest\\YoyoTest.Domain\\YoyoTest.Domain.csproj": {
+              "projectPath": "D:\\.Net\\YoyoTest\\YoyoTest.Domain\\YoyoTest.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
