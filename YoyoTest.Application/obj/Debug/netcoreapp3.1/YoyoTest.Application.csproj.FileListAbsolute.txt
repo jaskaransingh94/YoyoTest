@@ -6,7 +6,7 @@ D:\.Net\YoyoTest\YoyoTest.Application\bin\Debug\netcoreapp3.1\YoyoTest.Domain.pd
 D:\.Net\YoyoTest\YoyoTest.Application\obj\Debug\netcoreapp3.1\YoyoTest.Application.csprojAssemblyReference.cache
 D:\.Net\YoyoTest\YoyoTest.Application\obj\Debug\netcoreapp3.1\YoyoTest.Application.AssemblyInfoInputs.cache
 D:\.Net\YoyoTest\YoyoTest.Application\obj\Debug\netcoreapp3.1\YoyoTest.Application.AssemblyInfo.cs
-D:\.Net\YoyoTest\YoyoTest.Application\obj\Debug\netcoreapp3.1\YoyoTest.Application.csproj.CoreCompileInputs.cache
 D:\.Net\YoyoTest\YoyoTest.Application\obj\Debug\netcoreapp3.1\YoyoTest.Application.csproj.CopyComplete
 D:\.Net\YoyoTest\YoyoTest.Application\obj\Debug\netcoreapp3.1\YoyoTest.Application.dll
 D:\.Net\YoyoTest\YoyoTest.Application\obj\Debug\netcoreapp3.1\YoyoTest.Application.pdb
+D:\.Net\YoyoTest\YoyoTest.Application\obj\Debug\netcoreapp3.1\YoyoTest.Application.csproj.CoreCompileInputs.cache

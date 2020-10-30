@@ -7,6 +7,6 @@ namespace YoyoTest.Application.ViewModels
 {
     public class BeepTestViewModel
     {
-        public IEnumerable<BeepTestModel> BeepTestRatings { get; set; }
+        public IEnumerable<BeepTestApplicationModel> BeepTestRatings { get; set; }
     }
 }

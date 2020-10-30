@@ -13,6 +13,5 @@ namespace YoyoTest.Domain.Models
         public string LevelTime { get; set; }
         public string CommulativeTime { get; set; }
         public string StartTime { get; set; }
-        public string ApproxVo2Max { get; set; }
     }
 }
