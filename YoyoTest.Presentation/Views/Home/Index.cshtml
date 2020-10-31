@@ -14,7 +14,7 @@
         <div class="has-text-grey-light is-flex is-hidden-mobile">
             <div> NEXT</div> <div class="ml-2">SHUTTLE</div>
         </div>
-        <div class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+        <div data-type="shuttle" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
             0:00 s
         </div>
     </div>
@@ -25,7 +25,7 @@
         <div class="has-text-grey-light is-flex is-hidden-mobile">
             <div> TOTAL</div> <div class="ml-2">TIME</div>
         </div>
-        <div class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+        <div data-type="time" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
             0:00 m
         </div>
     </div>
@@ -36,7 +36,7 @@
         <div class="has-text-grey-light is-flex is-hidden-mobile">
             <div> TOTAL</div> <div class="ml-2">DISTANCE</div>
         </div>
-        <div class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+        <div data-type="distance" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
             0:00 m
         </div>
     </div>
@@ -208,9 +208,13 @@
 
 
 <script>
+
+    //handle dropdown open and close
     document.querySelectorAll('.dropdown').forEach(item => {
         item.addEventListener('click', event => {
             event.currentTarget.classList.toggle("is-active");
         })
     })
+
+
 </script>

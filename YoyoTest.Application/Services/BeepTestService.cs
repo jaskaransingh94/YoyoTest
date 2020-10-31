@@ -20,7 +20,7 @@ namespace YoyoTest.Application.Respository
 
         BeepTestViewModel IBeepTestService.GetBeepTestRatings()
         {
-            var sortData = _beepTestRepository.GetBeepTestRatings().OrderBy(level => level.SpeedLevel).ThenBy(shuttle => shuttle.ShuttleNo).Select(data => new BeepTestApplicationModel
+            IEnumerable<BeepTestApplicationModel> formattedData = _beepTestRepository.GetBeepTestRatings().Select(data => new BeepTestApplicationModel
             {
                 AccumulatedShuttleDistance = decimal.Parse(data.AccumulatedShuttleDistance),
                 Speed = decimal.Parse(data.Speed),
@@ -29,28 +29,29 @@ namespace YoyoTest.Application.Respository
                 CommulativeTime = FormatTime(data.CommulativeTime),
                 StartTime = FormatTime(data.StartTime),
                 LevelTime = FormatTime(data.LevelTime, true)
-                //CommulativeTime = TimeSpan.ParseExact(data.CommulativeTime, minSecFormat, CultureInfo.InvariantCulture),
             });
 
-            string data = JsonConvert.SerializeObject(sortData);
+            //sort data by speed level and shuttle
+            IEnumerable<BeepTestApplicationModel> sotedData = formattedData.OrderBy(item => item.SpeedLevel).ThenBy(item => item.ShuttleNo);
+            //string data = JsonConvert.SerializeObject(sotedData);
 
             return new BeepTestViewModel()
             {
-                BeepTestRatings = sortData
+                BeepTestRatings = sotedData
             };
         }
 
-        private TimeSpan FormatTime(string time, bool onlySeconds = false)
+        // format to datetime for comparison on client side
+        private DateTime FormatTime(string time, bool onlySeconds = false)
         {
-            if (onlySeconds)
+            if (onlySeconds) // format using seconds
             {
                 string[] secData = time.Split('.');
-                if (secData.Length > 1)
-                    return new TimeSpan(0, 0, 0, int.Parse(secData[0]), int.Parse(secData[1]));
-                return new TimeSpan(0, 0, 0, int.Parse(secData[0]));
+                return new DateTime(1, 1, 1, 0, 0, int.Parse(secData[0]));
             }
+            // format using minutes and seconds
             string[] minSecData = time.Split(':');
-            return new TimeSpan(0, 0, int.Parse(minSecData[0]), int.Parse(minSecData[1]));
+            return new DateTime(1, 1, 1, 0, int.Parse(minSecData[0]), int.Parse(minSecData[1]));
         }
     }
 }
