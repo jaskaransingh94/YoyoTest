@@ -16,6 +16,8 @@ namespace YoYoTest.Infra.IoC
 
             // Infra.Data Layer
             services.AddScoped<IBeepTestService, BeepTestService>();
+            services.AddScoped<IPlayerRepository, PlayerRepository>();
+
         }
     }
 }

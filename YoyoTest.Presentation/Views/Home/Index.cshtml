@@ -1,272 +1,185 @@
 ﻿@{
     ViewData["Title"] = "YoYo Test";
 }
+@model YoyoTest.Application.ViewModels.BeepTestViewModel
 
-<section class="timer-height columns is-flex is-justify-content-center is-align-items-center m-5">
-    <div data-pointer="true" class="start-timer column circle-moble is-one-fifth-widescreen is-one-quarter-desktop is-one-third-tablet circle is-flex is-justify-content-center is-align-items-center">
-        <i class="start-icon fas fa-play is-size-5-custom has-text-primary-dark"></i>
-        <div class="is-hidden started-text is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
-            <div class="level-number has-text-info mb-2 is-size-5">Level 12</div>
-            <div class="shuttle-number has-text-info mb-2 is-size-5">Shuttle 5</div>
-            <div class="speed-number has-text-black mb-2 is-size-5">14 km/h</div>
-        </div>
-    </div>
-</section>
-
-<section class="columns is-mobile is-flex is-flex-direction-row is-justify-content-space-between mb-5">
-    <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-        <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
-            <div> NEXT</div> <div>SHUTTLE</div>
-        </div>
-        <div class="has-text-grey-light is-flex is-hidden-mobile">
-            <div> NEXT</div> <div class="ml-2">SHUTTLE</div>
-        </div>
-        <div id="shuttle" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
-            0:00 s
-        </div>
-    </div>
-    <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-        <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
-            <div> TOTAL</div> <div>TIME</div>
-        </div>
-        <div class="has-text-grey-light is-flex is-hidden-mobile">
-            <div> TOTAL</div> <div class="ml-2">TIME</div>
-        </div>
-        <div id="time" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
-            0:00 m
-        </div>
-    </div>
-    <div class="column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-        <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
-            <div> TOTAL</div> <div>DISTANCE</div>
-        </div>
-        <div class="has-text-grey-light is-flex is-hidden-mobile">
-            <div> TOTAL</div> <div class="ml-2">DISTANCE</div>
-        </div>
-        <div id="distance" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
-            0:00 m
-        </div>
-    </div>
-</section>
-
-<section class="is-flex is-flex-direction-column mb-4">
-    <div class="has-text-primary-dark has-text-weight-bold">
-        Track
-    </div>
-    <div class="dropdown-divider has-background-grey-light"></div>
-</section>
-
-<section class="columns is-multiline is-tab">
-    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
-            <div class="is-flex is-flex-direction-row">
-                <div class="has-text-info has-text-weight-bold mr-2">1.</div>
-                <div>Ashton Eaton</div>
+    <section class="timer-height columns is-flex is-justify-content-center is-align-items-center m-5">
+        <div data-pointer="true" class="start-timer column circle-moble is-one-fifth-widescreen is-one-quarter-desktop is-one-third-tablet circle is-flex is-justify-content-center is-align-items-center">
+            <i class="start-icon fas fa-play is-size-5-custom has-text-primary-dark"></i>
+            <div class="is-hidden started-text is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+                <div class="level-number has-text-info mb-2 is-size-5">Level 12</div>
+                <div class="shuttle-number has-text-info mb-2 is-size-5">Shuttle 5</div>
+                <div class="speed-number has-text-black mb-2 is-size-5">14 km/h</div>
             </div>
-            <div class="dropdown">
-                <div class="dropdown-trigger">
-                    <button class="button is-shadowless" aria-haspopup="true" aria-controls="dropdown-menu3">
-                        <span>11-3</span>
-                        <span class="icon is-small">
-                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                        </span>
-                    </button>
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu3" role="menu">
-                    <div class="dropdown-content">
-                        <a href="#" class="dropdown-item">
-                            18-9
-                        </a>
-                        <a href="#" class="dropdown-item">
-                            16-3
-                        </a>
-                        <a href="#" class="dropdown-item">
-                            20-3
-                        </a>
-                        <a href="#" class="dropdown-item">
-                            9-3
-                        </a>
+        </div>
+    </section>
+
+    <section class="columns is-mobile is-flex is-flex-direction-row is-justify-content-space-between mb-5">
+        <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+            <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
+                <div> NEXT</div> <div>SHUTTLE</div>
+            </div>
+            <div class="has-text-grey-light is-flex is-hidden-mobile">
+                <div> NEXT</div> <div class="ml-2">SHUTTLE</div>
+            </div>
+            <div id="shuttle" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+                0:00 s
+            </div>
+        </div>
+        <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+            <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
+                <div> TOTAL</div> <div>TIME</div>
+            </div>
+            <div class="has-text-grey-light is-flex is-hidden-mobile">
+                <div> TOTAL</div> <div class="ml-2">TIME</div>
+            </div>
+            <div id="time" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+                0:00 m
+            </div>
+        </div>
+        <div class="column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+            <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
+                <div> TOTAL</div> <div>DISTANCE</div>
+            </div>
+            <div class="has-text-grey-light is-flex is-hidden-mobile">
+                <div> TOTAL</div> <div class="ml-2">DISTANCE</div>
+            </div>
+            <div id="distance" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+                0 m
+            </div>
+        </div>
+    </section>
+
+    <section class="is-flex is-flex-direction-column mb-4">
+        <div class="has-text-primary-dark has-text-weight-bold">
+            Track
+        </div>
+        <div class="dropdown-divider has-background-grey-light"></div>
+    </section>
+
+    <section class="columns is-multiline is-tab">
+        @*<div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+                <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+                    <div class="is-flex is-flex-direction-row">
+                        <div class="has-text-info has-text-weight-bold mr-2">1.</div>
+                        <div>Ashton Eaton</div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-trigger">
+                            <button class="button is-shadowless" aria-haspopup="true" aria-controls="dropdown-menu3">
+                                <span>11-3</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                            <div class="dropdown-content">
+                                <a href="#" class="dropdown-item">
+                                    18-9
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    16-3
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    20-3
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    9-3
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="dropdown-divider has-background-grey-lighter"></div>
+            </div>*@
+
+        @foreach (var player in Model.Players)
+        {
+        <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+            <div data-Id='@player.PlayerId' class="is-flex is-flex-direction-row is-justify-content-space-between">
+                <div class="is-flex is-flex-direction-row">
+                    <div class="has-text-info has-text-weight-bold mr-2">@player.PlayerId</div>
+                    <div>@player.PlayerName</div>
+                </div>
+                <div class="is-flex is-hidden" data-buttons="stage">
+                    <span data-pointer="true" data-stage="Warn" data-count="0" class="tag is-info is-rounded">Warn</span>
+                    <span data-pointer="true" data-stage="Stop" data-stop="true" class="tag is-danger is-rounded ml-2">Stop</span>
+                </div>
             </div>
+            <div class="dropdown-divider has-background-grey-lighter"></div>
         </div>
-        <div class="dropdown-divider has-background-grey-lighter"></div>
-    </div>
+        }
 
-    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
-            <div class="is-flex is-flex-direction-row">
-                <div class="has-text-info has-text-weight-bold mr-2">2.</div>
-                <div>Ashton Eaton</div>
-            </div>
-            <div class="is-flex">
-                <span data-pointer="true" class="tag is-info is-rounded">Warn</span>
-                <span data-pointer="true" class="tag is-danger is-rounded ml-2">Stop</span>
-            </div>
-        </div>
-        <div class="dropdown-divider has-background-grey-lighter"></div>
-    </div>
+        @*has-background-grey-light*@
 
-    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
-            <div class="is-flex is-flex-direction-row">
-                <div class="has-text-info has-text-weight-bold mr-2">3.</div>
-                <div>Ashton Eaton</div>
-            </div>
-            <div class="is-flex">
-                <span data-pointer="false" class="tag is-info is-rounded has-background-grey-light">Warned</span>
-                <span data-pointer="true" class="tag is-danger is-rounded ml-2">Stop</span>
-            </div>
-        </div>
-        <div class="dropdown-divider has-background-grey-lighter"></div>
-    </div>
+    </section>
 
-    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
-            <div class="is-flex is-flex-direction-row">
-                <div class="has-text-info has-text-weight-bold mr-2">4.</div>
-                <div>Ashton Eaton</div>
-            </div>
-        </div>
-        <div class="dropdown-divider has-background-grey-lighter"></div>
-    </div>
-
-    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
-            <div class="is-flex is-flex-direction-row">
-                <div class="has-text-info has-text-weight-bold mr-2">2.</div>
-                <div>Ashton Eaton</div>
-            </div>
-            <div class="is-flex">
-                <span class="tag is-info is-rounded">Warn</span>
-                <span class="tag is-danger is-rounded ml-2">Stop</span>
-            </div>
-        </div>
-        <div class="dropdown-divider has-background-grey-lighter"></div>
-    </div>
-
-    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
-            <div class="is-flex is-flex-direction-row">
-                <div class="has-text-info has-text-weight-bold mr-2">3.</div>
-                <div>Ashton Eaton</div>
-            </div>
-            <div class="is-flex">
-                <span class="tag is-info is-rounded has-background-grey-light">Warned</span>
-                <span class="tag is-danger is-rounded ml-2">Stop</span>
-            </div>
-        </div>
-        <div class="dropdown-divider has-background-grey-lighter"></div>
-    </div>
-
-    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
-            <div class="is-flex is-flex-direction-row">
-                <div class="has-text-info has-text-weight-bold mr-2">4.</div>
-                <div>Ashton Eaton</div>
-            </div>
-        </div>
-        <div class="dropdown-divider has-background-grey-lighter"></div>
-    </div>
-
-    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
-            <div class="is-flex is-flex-direction-row">
-                <div class="has-text-info has-text-weight-bold mr-2">2.</div>
-                <div>Ashton Eaton</div>
-            </div>
-            <div class="is-flex">
-                <span class="tag is-info is-rounded">Warn</span>
-                <span class="tag is-danger is-rounded ml-2">Stop</span>
-            </div>
-        </div>
-        <div class="dropdown-divider has-background-grey-lighter"></div>
-    </div>
-
-    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
-            <div class="is-flex is-flex-direction-row">
-                <div class="has-text-info has-text-weight-bold mr-2">3.</div>
-                <div>Ashton Eaton</div>
-            </div>
-            <div class="is-flex">
-                <span class="tag is-info is-rounded has-background-grey-light">Warned</span>
-                <span class="tag is-danger is-rounded ml-2">Stop</span>
-            </div>
-        </div>
-        <div class="dropdown-divider has-background-grey-lighter"></div>
-    </div>
-
-    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
-            <div class="is-flex is-flex-direction-row">
-                <div class="has-text-info has-text-weight-bold mr-2">4.</div>
-                <div>Ashton Eaton</div>
-            </div>
-        </div>
-        <div class="dropdown-divider has-background-grey-lighter"></div>
-    </div>
-
-</section>
-
-<section class="is-flex is-flex-direction-column mb-4">
-    <div class="dropdown-divider has-background-grey-light"></div>
-</section>
+    <section class="is-flex is-flex-direction-column mb-4">
+        <div class="dropdown-divider has-background-grey-light"></div>
+    </section>
 
 
-<script>
-    //classes to be updated
-    const startIcon = "start-icon";
-    const startedText = "started-text";
-    const timer = "start-timer";
-    const shuttleData = "shuttle";
-    const totalTimeData = "time";
-    const totalDistanceData = "distance";
-    const levelInTimer = "level-number";
-    const shuttleInTimer = "shuttle-number";
-    const speedInTimer = "speed-number";
+    <script>
+        //classes to be updated
+        const startIcon = "start-icon";
+        const startedText = "started-text";
+        const timer = "start-timer";
+        const shuttleData = "shuttle";
+        const totalTimeData = "time";
+        const totalDistanceData = "distance";
+        const levelInTimer = "level-number";
+        const shuttleInTimer = "shuttle-number";
+        const speedInTimer = "speed-number";
+        const dropdown = ".dropdown";
 
-    //elements of above classes
-    let startButton = document.getElementsByClassName(timer)[0];
-    let nextShuttle = document.getElementById(shuttleData);
-    let totalTime = document.getElementById(totalTimeData);
-    let totalDistance = document.getElementById(totalDistanceData);
-    let startIconElement = document.getElementsByClassName(startIcon);
-    let startedTextElement = document.getElementsByClassName(startedText)[0];
-    let levelInTimerElement = document.getElementsByClassName(levelInTimer)[0];
-    let shuttleInTimerElement = document.getElementsByClassName(shuttleInTimer)[0];
-    let speedInTimerElement = document.getElementsByClassName(speedInTimer)[0];
+        //elements of above classes
+        let startButton = document.getElementsByClassName(timer)[0];
+        let nextShuttle = document.getElementById(shuttleData);
+        let totalTime = document.getElementById(totalTimeData);
+        let totalDistance = document.getElementById(totalDistanceData);
+        let startIconElement = document.getElementsByClassName(startIcon);
+        let startedTextElement = document.getElementsByClassName(startedText)[0];
+        let levelInTimerElement = document.getElementsByClassName(levelInTimer)[0];
+        let shuttleInTimerElement = document.getElementsByClassName(shuttleInTimer)[0];
+        let speedInTimerElement = document.getElementsByClassName(speedInTimer)[0];
+        let dropdownList = document.querySelectorAll(dropdown);
 
-    //handle dropdown open and close
-    document.querySelectorAll('.dropdown').forEach(item => {
-        item.addEventListener('click', event => {
-            event.currentTarget.classList.toggle("is-active");
+        //Utility Classes
+        const active = "is-active";
+        const hidden = "is-hidden";
+
+        //handle dropdown open and close
+        dropdownList.forEach(item => {
+            item.addEventListener('click', event => {
+                event.currentTarget.classList.toggle(active);
+            })
         })
-    })
 
-    //On start icon button click
-    startButton.addEventListener('click', event => {
-        ToggleStartIconAndTextVisibility();
-        const startTime = new Date().getTime(); //start time of the test
-        setInterval(function () { UpdateTimeAndDistanceData(startTime) }, 1000);
-    });
+        //On start icon button click
+        startButton.addEventListener('click', event => {
+            ToggleStartIconAndTextVisibility();
+            const startTime = new Date().getTime(); //start time of the test
+            setInterval(function () { UpdateTimeAndDistanceData(startTime) }, 1000);
+        });
 
-    function UpdateTimeAndDistanceData(startTime) {
-        let presentTime = new Date().getTime();
+        function UpdateTimeAndDistanceData(startTime) {
+            let presentTime = new Date().getTime();
 
-        //set total time
-        let calculatedTime = presentTime - startTime;
-        let minutes = Math.floor((calculatedTime % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((calculatedTime % (1000 * 60)) / 1000);
-        totalTime.innerText = `${minutes}:${seconds} m`
-    }
+            //set total time
+            let calculatedTime = presentTime - startTime;
+            let minutes = Math.floor((calculatedTime % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((calculatedTime % (1000 * 60)) / 1000);
+            totalTime.innerText = `${minutes}:${seconds} m`
+        }
 
-    function UpdateShuttleRelatedData() {
+        function UpdateShuttleRelatedData() {
 
-    }
+        }
 
-    function ToggleStartIconAndTextVisibility() {
-        startIconElement[0].classList.toggle("is-hidden");
-        startedTextElement.classList.toggle("is-hidden");
-    }
-</script>
+        //toggle timer text and icon visibility
+        function ToggleStartIconAndTextVisibility() {
+            startIconElement[0].classList.toggle(hidden);
+            startedTextElement.classList.toggle(hidden);
+        }
+    </script>

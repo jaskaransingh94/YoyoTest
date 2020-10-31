@@ -7,20 +7,25 @@ using System.Text;
 using YoyoTest.Application.Interfaces;
 using YoyoTest.Application.ViewModels;
 using YoyoTest.Domain.Interfaces;
+using YoyoTest.Domain.Models;
 
 namespace YoyoTest.Application.Respository
 {
     public class BeepTestService : IBeepTestService
     {
         private IBeepTestRepository _beepTestRepository;
-        public BeepTestService(IBeepTestRepository beepTestRepository)
+        private IPlayerRepository _playerRepository;
+
+        public BeepTestService(IBeepTestRepository beepTestRepository, IPlayerRepository playerRepository)
         {
             _beepTestRepository = beepTestRepository;
+            _playerRepository = playerRepository;
         }
 
         BeepTestViewModel IBeepTestService.GetBeepTestRatings()
         {
-            IEnumerable<BeepTestApplicationModel> formattedData = _beepTestRepository.GetBeepTestRatings().Select(data => new BeepTestApplicationModel
+            //test data
+            IEnumerable<BeepTestApplicationModel> formattedTestData = _beepTestRepository.GetBeepTestRatings().Select(data => new BeepTestApplicationModel
             {
                 AccumulatedShuttleDistance = decimal.Parse(data.AccumulatedShuttleDistance),
                 Speed = decimal.Parse(data.Speed),
@@ -32,12 +37,26 @@ namespace YoyoTest.Application.Respository
             });
 
             //sort data by speed level and shuttle
-            IEnumerable<BeepTestApplicationModel> sotedData = formattedData.OrderBy(item => item.SpeedLevel).ThenBy(item => item.ShuttleNo);
+            IEnumerable<BeepTestApplicationModel> sotedTestData = formattedTestData.OrderBy(item => item.SpeedLevel).ThenBy(item => item.ShuttleNo);
             //string data = JsonConvert.SerializeObject(sotedData);
+
+            //player data
+            IEnumerable<PlayerApplicationModel> formattedPlayerData = _playerRepository.GetPlayers().Select(data => new PlayerApplicationModel
+            {
+                PlayerId = int.Parse(data.PlayerId),
+                SpeedLevel = int.Parse(data.SpeedLevel),
+                ShuttleNo = int.Parse(data.ShuttleNo),
+                WarnCount = int.Parse(data.WarnCount),
+                PlayerName = data.PlayerName,
+                IsStopped = bool.Parse(data.IsStopped),
+            });
+
+            IEnumerable<PlayerApplicationModel> sotedPlayerData = formattedPlayerData.OrderBy(item => item.PlayerId);
 
             return new BeepTestViewModel()
             {
-                BeepTestRatings = sotedData
+                BeepTestRatings = sotedTestData,
+                Players = sotedPlayerData
             };
         }
 
