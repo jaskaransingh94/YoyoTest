@@ -132,6 +132,7 @@
         const shuttleInTimer = "shuttle-number";
         const speedInTimer = "speed-number";
         const dropdown = ".dropdown";
+        const playerButtonsAttribuute = '[data-buttons="stage"]';       
 
         //elements of above classes
         let startButton = document.getElementsByClassName(timer)[0];
@@ -144,6 +145,7 @@
         let shuttleInTimerElement = document.getElementsByClassName(shuttleInTimer)[0];
         let speedInTimerElement = document.getElementsByClassName(speedInTimer)[0];
         let dropdownList = document.querySelectorAll(dropdown);
+        let playerButtonsElement = document.querySelectorAll(playerButtonsAttribuute);
 
         //Utility Classes
         const active = "is-active";
@@ -159,6 +161,12 @@
         //On start icon button click
         startButton.addEventListener('click', event => {
             ToggleStartIconAndTextVisibility();
+
+            //display button when test is started
+            playerButtonsElement.forEach(item => {
+                item.classList.toggle(hidden);
+            })
+
             const startTime = new Date().getTime(); //start time of the test
             setInterval(function () { UpdateTimeAndDistanceData(startTime) }, 1000);
         });
