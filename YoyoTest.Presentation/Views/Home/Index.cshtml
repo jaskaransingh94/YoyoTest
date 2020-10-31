@@ -11,42 +11,51 @@
                 <div class="shuttle-number has-text-info mb-2 is-size-5">Shuttle 5</div>
                 <div class="speed-number has-text-black mb-2 is-size-5">14 km/h</div>
             </div>
+            <div class="is-hidden test-completed is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+                <div class="has-text-danger is-size-5 has-text-weight-bold">Test</div>
+                <div class="has-text-danger is-size-5 has-text-weight-bold">Completed</div>
+            </div>
         </div>
     </section>
 
-    <section class="columns is-mobile is-flex is-flex-direction-row is-justify-content-space-between mb-5">
-        <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-            <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
-                <div> NEXT</div> <div>SHUTTLE</div>
+    <section>
+        <div class="test-info columns is-mobile is-flex is-flex-direction-row is-justify-content-space-between mb-5">
+            <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+                <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
+                    <div> NEXT</div> <div>SHUTTLE</div>
+                </div>
+                <div class="has-text-grey-light is-flex is-hidden-mobile">
+                    <div> NEXT</div> <div class="ml-2">SHUTTLE</div>
+                </div>
+                <div id="shuttle" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+                    0:00 s
+                </div>
             </div>
-            <div class="has-text-grey-light is-flex is-hidden-mobile">
-                <div> NEXT</div> <div class="ml-2">SHUTTLE</div>
+            <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+                <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
+                    <div> TOTAL</div> <div>TIME</div>
+                </div>
+                <div class="has-text-grey-light is-flex is-hidden-mobile">
+                    <div> TOTAL</div> <div class="ml-2">TIME</div>
+                </div>
+                <div id="time" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+                    0:00 m
+                </div>
             </div>
-            <div id="shuttle" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
-                0:00 s
+            <div class="column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+                <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
+                    <div> TOTAL</div> <div>DISTANCE</div>
+                </div>
+                <div class="has-text-grey-light is-flex is-hidden-mobile">
+                    <div> TOTAL</div> <div class="ml-2">DISTANCE</div>
+                </div>
+                <div id="distance" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+                    0 m
+                </div>
             </div>
         </div>
-        <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-            <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
-                <div> TOTAL</div> <div>TIME</div>
-            </div>
-            <div class="has-text-grey-light is-flex is-hidden-mobile">
-                <div> TOTAL</div> <div class="ml-2">TIME</div>
-            </div>
-            <div id="time" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
-                0:00 m
-            </div>
-        </div>
-        <div class="column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-            <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
-                <div> TOTAL</div> <div>DISTANCE</div>
-            </div>
-            <div class="has-text-grey-light is-flex is-hidden-mobile">
-                <div> TOTAL</div> <div class="ml-2">DISTANCE</div>
-            </div>
-            <div id="distance" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
-                0 m
-            </div>
+        <div class="is-hidden view-results is-mobile is-flex is-justify-content-center is-align-items-center mb-5">
+            <span data-pointer="true" class="tag has-background-success-dark is-rounded has-text-weight-bold has-text-white	is-size-4 pl-6 pr-6 pt-3 pb-3">View Results</span>
         </div>
     </section>
 
@@ -114,7 +123,11 @@
 
 
     <script>
+        //global variables
         let interval = null;
+        let shuttleNumber = 0;
+        let speedLevel = 0;
+        let speed = 0;
 
         //classes to modifiable elements in the dom
         const startIcon = "start-icon";
@@ -125,11 +138,13 @@
         const totalDistanceData = "distance";
         const levelInTimer = "level-number";
         const shuttleInTimer = "shuttle-number";
-        const speedInTimer = "speed-number";
+        const speedInTimer = "speed-number"; 
+        const testCompleted = "test-completed";
+        const testInfo = "test-info";
+        const viewResults = "view-results";
 
         //Data attributes
         const playerButtonsAttribuute = '[data-buttons="stage"]';
-        //const playerSection = '[data-section="player-info"]';
                 
         //Class Reference
         const dropdown = ".dropdown";
@@ -146,7 +161,9 @@
         let levelInTimerElement = document.getElementsByClassName(levelInTimer)[0];
         let shuttleInTimerElement = document.getElementsByClassName(shuttleInTimer)[0];
         let speedInTimerElement = document.getElementsByClassName(speedInTimer)[0];
-        //let players = document.querySelector(playerSection);
+        let testCompletedElement = document.getElementsByClassName(testCompleted)[0];
+        let testInfoElement = document.getElementsByClassName(testInfo)[0];
+        let viewResultsElement = document.getElementsByClassName(viewResults)[0];
 
         //List of elements
         let playerButtonsElement = document.querySelectorAll(playerButtonsAttribuute);
@@ -184,8 +201,7 @@
 
                 //clear interval and modify cirlce
                 if (deactivatedPlayers.length === playerInfoElements.length) {
-                    ToggleStartIconAndTextVisibility()
-                    clearInterval(interval);
+                    TestCompleted();
                 }
             });
         });
@@ -233,5 +249,14 @@
         function ToggleStartIconAndTextVisibility() {
             startIconElement[0].classList.toggle(hidden);
             startedTextElement.classList.toggle(hidden);
+        }
+
+        //ui changes when test is completed
+        function TestCompleted() {
+            clearInterval(interval);
+            startedTextElement.classList.toggle(hidden);
+            testCompletedElement.classList.toggle(hidden);
+            testInfoElement.classList.toggle(hidden);
+            viewResultsElement.classList.toggle(hidden);
         }
     </script>
