@@ -3,7 +3,14 @@
 }
 
 <section class="timer-height columns is-flex is-justify-content-center is-align-items-center m-5">
-    <div class="column circle-moble is-one-fifth-widescreen is-one-quarter-desktop is-one-third-tablet circle is-flex is-justify-content-center is-align-items-center"><i class="fas fa-play is-size-5-custom has-text-primary-dark"></i></div>
+    <div data-pointer="true" class="start-timer column circle-moble is-one-fifth-widescreen is-one-quarter-desktop is-one-third-tablet circle is-flex is-justify-content-center is-align-items-center">
+        <i class="start-icon fas fa-play is-size-5-custom has-text-primary-dark"></i>
+        <div class="is-hidden started-text is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+            <div class="level-number has-text-info mb-2 is-size-5">Level 12</div>
+            <div class="shuttle-number has-text-info mb-2 is-size-5">Shuttle 5</div>
+            <div class="speed-number has-text-black mb-2 is-size-5">14 km/h</div>
+        </div>
+    </div>
 </section>
 
 <section class="columns is-mobile is-flex is-flex-direction-row is-justify-content-space-between mb-5">
@@ -14,7 +21,7 @@
         <div class="has-text-grey-light is-flex is-hidden-mobile">
             <div> NEXT</div> <div class="ml-2">SHUTTLE</div>
         </div>
-        <div data-type="shuttle" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+        <div id="shuttle" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
             0:00 s
         </div>
     </div>
@@ -25,7 +32,7 @@
         <div class="has-text-grey-light is-flex is-hidden-mobile">
             <div> TOTAL</div> <div class="ml-2">TIME</div>
         </div>
-        <div data-type="time" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+        <div id="time" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
             0:00 m
         </div>
     </div>
@@ -36,7 +43,7 @@
         <div class="has-text-grey-light is-flex is-hidden-mobile">
             <div> TOTAL</div> <div class="ml-2">DISTANCE</div>
         </div>
-        <div data-type="distance" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+        <div id="distance" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
             0:00 m
         </div>
     </div>
@@ -93,8 +100,8 @@
                 <div>Ashton Eaton</div>
             </div>
             <div class="is-flex">
-                <span class="tag is-info is-rounded">Warn</span>
-                <span class="tag is-danger is-rounded ml-2">Stop</span>
+                <span data-pointer="true" class="tag is-info is-rounded">Warn</span>
+                <span data-pointer="true" class="tag is-danger is-rounded ml-2">Stop</span>
             </div>
         </div>
         <div class="dropdown-divider has-background-grey-lighter"></div>
@@ -107,8 +114,8 @@
                 <div>Ashton Eaton</div>
             </div>
             <div class="is-flex">
-                <span class="tag is-info is-rounded has-background-grey-light">Warned</span>
-                <span class="tag is-danger is-rounded ml-2">Stop</span>
+                <span data-pointer="false" class="tag is-info is-rounded has-background-grey-light">Warned</span>
+                <span data-pointer="true" class="tag is-danger is-rounded ml-2">Stop</span>
             </div>
         </div>
         <div class="dropdown-divider has-background-grey-lighter"></div>
@@ -208,6 +215,27 @@
 
 
 <script>
+    //classes to be updated
+    const startIcon = "start-icon";
+    const startedText = "started-text";
+    const timer = "start-timer";
+    const shuttleData = "shuttle";
+    const totalTimeData = "time";
+    const totalDistanceData = "distance";
+    const levelInTimer = "level-number";
+    const shuttleInTimer = "shuttle-number";
+    const speedInTimer = "speed-number";
+
+    //elements of above classes
+    let startButton = document.getElementsByClassName(timer)[0];
+    let nextShuttle = document.getElementById(shuttleData);
+    let totalTime = document.getElementById(totalTimeData);
+    let totalDistance = document.getElementById(totalDistanceData);
+    let startIconElement = document.getElementsByClassName(startIcon);
+    let startedTextElement = document.getElementsByClassName(startedText)[0];
+    let levelInTimerElement = document.getElementsByClassName(levelInTimer)[0];
+    let shuttleInTimerElement = document.getElementsByClassName(shuttleInTimer)[0];
+    let speedInTimerElement = document.getElementsByClassName(speedInTimer)[0];
 
     //handle dropdown open and close
     document.querySelectorAll('.dropdown').forEach(item => {
@@ -216,5 +244,29 @@
         })
     })
 
+    //On start icon button click
+    startButton.addEventListener('click', event => {
+        ToggleStartIconAndTextVisibility();
+        const startTime = new Date().getTime(); //start time of the test
+        setInterval(function () { UpdateTimeAndDistanceData(startTime) }, 1000);
+    });
 
+    function UpdateTimeAndDistanceData(startTime) {
+        let presentTime = new Date().getTime();
+
+        //set total time
+        let calculatedTime = presentTime - startTime;
+        let minutes = Math.floor((calculatedTime % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((calculatedTime % (1000 * 60)) / 1000);
+        totalTime.innerText = `${minutes}:${seconds} m`
+    }
+
+    function UpdateShuttleRelatedData() {
+
+    }
+
+    function ToggleStartIconAndTextVisibility() {
+        startIconElement[0].classList.toggle("is-hidden");
+        startedTextElement.classList.toggle("is-hidden");
+    }
 </script>

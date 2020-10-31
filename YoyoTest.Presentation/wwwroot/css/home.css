@@ -20,3 +20,7 @@ a.dropdown-item {
 .whitespace-wrap {
     white-space: nowrap
 }
+
+[data-pointer="true"] {
+    cursor: pointer
+}
