@@ -46,7 +46,7 @@ namespace YoyoTest.Application.Respository
                 PlayerId = int.Parse(data.PlayerId),
                 SpeedLevel = int.Parse(data.SpeedLevel),
                 ShuttleNo = int.Parse(data.ShuttleNo),
-                WarnCount = int.Parse(data.WarnCount),
+                IsWarned = bool.Parse(data.IsWarned),
                 PlayerName = data.PlayerName,
                 IsStopped = bool.Parse(data.IsStopped),
             });

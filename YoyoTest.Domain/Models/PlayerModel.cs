@@ -10,7 +10,7 @@ namespace YoyoTest.Domain.Models
         public string SpeedLevel { get; set; }
         public string ShuttleNo { get; set; }
         public string PlayerName { get; set; }
-        public string WarnCount { get; set; }
+        public string IsWarned { get; set; }
         public string IsStopped { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace YoyoTest.Infra.Data.Respository
   {
     ""PlayerId"": ""1"",
     ""PlayerName"": ""Michael Laudrup"",
-    ""WarnCount"": ""0"",
+    ""IsWarned"": ""false"",
     ""IsStopped"": ""false"",
     ""SpeedLevel"": ""0"",
     ""ShuttleNo"": ""0"",
@@ -18,7 +18,7 @@ namespace YoyoTest.Infra.Data.Respository
 {
     ""PlayerId"": ""2"",
     ""PlayerName"": ""Peter Schmeichel"",
-    ""WarnCount"": ""0"",
+    ""IsWarned"": ""false"",
     ""IsStopped"": ""false"",
     ""SpeedLevel"": ""0"",
     ""ShuttleNo"": ""0"",
@@ -26,7 +26,7 @@ namespace YoyoTest.Infra.Data.Respository
 {
     ""PlayerId"": ""3"",
     ""PlayerName"": ""Allan Simonsen"",
-    ""WarnCount"": ""0"",
+    ""IsWarned"": ""false"",
     ""IsStopped"": ""false"",
     ""SpeedLevel"": ""0"",
     ""ShuttleNo"": ""0"",
@@ -34,7 +34,7 @@ namespace YoyoTest.Infra.Data.Respository
 {
     ""PlayerId"": ""4"",
     ""PlayerName"": ""Brian Laudrup"",
-    ""WarnCount"": ""0"",
+    ""IsWarned"": ""false"",
     ""IsStopped"": ""false"",
     ""SpeedLevel"": ""0"",
     ""ShuttleNo"": ""0"",
@@ -42,7 +42,7 @@ namespace YoyoTest.Infra.Data.Respository
 {
     ""PlayerId"": ""5"",
     ""PlayerName"": ""Christian Eriksen"",
-    ""WarnCount"": ""0"",
+    ""IsWarned"": ""false"",
     ""IsStopped"": ""false"",
     ""SpeedLevel"": ""0"",
     ""ShuttleNo"": ""0"",
