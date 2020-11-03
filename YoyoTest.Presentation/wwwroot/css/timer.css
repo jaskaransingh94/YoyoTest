@@ -1,46 +1,44 @@
 ﻿
-.timer-height {
-    /*height: 20em*/
-}
-
 .circle {
     background: #ffffff;
-    box-shadow: 1rem 1rem 2rem #dbdbdb, -1rem -1rem #ffffff;
+    box-shadow: 0rem 0rem 1rem #f7f7f7, 0.5rem 0.5rem 1rem #409a7d;
+    border-radius: 50%;
+    height: 11rem;
+    width: 11rem;
+}
+
+.circle2 {
+    background: #ffffff;
     border-radius: 50%;
     height: 15rem;
+    width: 13rem;
+}
+
+.circle3 {
+    border-radius: 50%;
+    height: 18rem;
     width: 15rem;
+    background: conic-gradient( #ffffff 0deg, #e25555 1deg 170deg, #ffffff 171deg);
 }
 
 .is-size-5-custom {
-    font-size: 4rem
+    font-size: 3rem
 }
 
 @media screen and (max-width: 350px) {
-    .circle-moble {
+    .circle {
         flex: none;
         width: 90%;
-        height: 10rem;
+        height: 9rem;
     }
-    .view-results span {
-        width: 90%
-    }
-}
-
-@media screen and (max-width: 500px) and (min-width: 350px) {
-    .circle-moble {
+    .circle2 {
         flex: none;
-        width: 70%;
+        width: 90%;
         height: 12rem;
     }
-    .view-results span {
-        width: 90%
-    }
-}
-
-@media screen and (max-width: 625px) and (min-width: 501px) {
-    .circle-moble {
+    .circle3 {
         flex: none;
-        width: 60%;
+        width: 100%;
         height: 15rem;
     }
     .view-results span {
@@ -48,11 +46,69 @@
     }
 }
 
-@media screen and (max-width: 768px) and (min-width: 625px) {
-    .circle-moble {
+@media screen and (max-width: 500px) and (min-width: 350px) {
+    .circle {
         flex: none;
-        width: 40%;
-        height: 12rem;
+        width: 90%;
+        height: 11rem;
+    }
+
+    .circle2 {
+        flex: none;
+        width: 90%;
+        height: 15rem;
+    }
+
+    .circle3 {
+        flex: none;
+        width: 90%;
+        height: 18rem;
+    }
+    .view-results span {
+        width: 90%
+    }
+}
+
+@media screen and (max-width: 625px) and (min-width: 501px) {
+    .circle {
+        flex: none;
+        width: 90%;
+        height: 10rem;
+    }
+
+    .circle2 {
+        flex: none;
+        width: 90%;
+        height: 14rem;
+    }
+
+    .circle3 {
+        flex: none;
+        width: 60%;
+        height: 17rem;
+    }
+    .view-results span {
+        width: 90%
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 625px) {
+    .circle {
+        flex: none;
+        width: 90%;
+        height: 11rem;
+    }
+
+    .circle2 {
+        flex: none;
+        width: 90%;
+        height: 15rem;
+    }
+
+    .circle3 {
+        flex: none;
+        width: 50%;
+        height: 18rem;
     }
     .view-results span {
         width: 90%

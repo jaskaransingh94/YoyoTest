@@ -14,4 +14,7 @@
     <ProjectReference Include="..\YoyoTest.Ioc\YoyoTest.Ioc.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="lib/bulma/**" />
+  </ItemGroup>
 </Project>

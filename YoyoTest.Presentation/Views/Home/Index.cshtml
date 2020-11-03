@@ -3,8 +3,10 @@
 }
 @model YoyoTest.Application.ViewModels.BeepTestViewModel
 
-    <section class="timer-height columns is-flex is-justify-content-center is-align-items-center m-5">
-        <div data-pointer="true" class="start-timer column circle-moble is-one-fifth-widescreen is-one-quarter-desktop is-one-third-tablet circle is-flex is-justify-content-center is-align-items-center">
+<section class="columns is-flex is-justify-content-center is-align-items-center m-5">
+    <div class="column is-size-8-widescreen is-3-desktop is-4-tablet circle3 is-flex is-justify-content-center is-align-items-center">
+        <div class="column is-11-widescreen is-11-desktop is-11-tablet circle2 is-flex is-justify-content-center is-align-items-center">
+            <div data-pointer="true" class="start-timer column is-10-widescreen is-11-desktop is-10-tablet circle is-flex is-justify-content-center is-align-items-center">
             <i class="start-icon fas fa-play is-size-5-custom has-text-primary-dark"></i>
             <div class="is-hidden started-text is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
                 <div class="level-number has-text-info mb-2 is-size-5">Level 12</div>
@@ -16,63 +18,65 @@
                 <div class="has-text-danger is-size-5 has-text-weight-bold">Completed</div>
             </div>
         </div>
-    </section>
+        </div>
+    </div>
+</section>
 
-    <section>
-        <div class="test-info columns is-mobile is-flex is-flex-direction-row is-justify-content-space-between mb-5">
-            <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-                <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
-                    <div> NEXT</div> <div>SHUTTLE</div>
-                </div>
-                <div class="has-text-grey-light is-flex is-hidden-mobile">
-                    <div> NEXT</div> <div class="ml-2">SHUTTLE</div>
-                </div>
-                <div id="shuttle" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
-                    0:00 s
-                </div>
+<section>
+    <div class="test-info columns is-mobile is-flex is-flex-direction-row is-justify-content-space-between mb-5">
+        <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+            <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
+                <div> NEXT</div> <div>SHUTTLE</div>
             </div>
-            <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-                <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
-                    <div> TOTAL</div> <div>TIME</div>
-                </div>
-                <div class="has-text-grey-light is-flex is-hidden-mobile">
-                    <div> TOTAL</div> <div class="ml-2">TIME</div>
-                </div>
-                <div id="time" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
-                    0:00 m
-                </div>
+            <div class="has-text-grey-light is-flex is-hidden-mobile">
+                <div> NEXT</div> <div class="ml-2">SHUTTLE</div>
             </div>
-            <div class="column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-                <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
-                    <div> TOTAL</div> <div>DISTANCE</div>
-                </div>
-                <div class="has-text-grey-light is-flex is-hidden-mobile">
-                    <div> TOTAL</div> <div class="ml-2">DISTANCE</div>
-                </div>
-                <div id="distance" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
-                    0 m
-                </div>
+            <div id="shuttle" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+                0:00 s
             </div>
         </div>
-        <div class="is-hidden view-results is-mobile is-flex is-justify-content-center is-align-items-center mb-5">
-            <span data-pointer="true" class="tag has-background-success-dark is-rounded has-text-weight-bold has-text-white	is-size-4 pl-6 pr-6 pt-3 pb-3">View Results</span>
+        <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+            <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
+                <div> TOTAL</div> <div>TIME</div>
+            </div>
+            <div class="has-text-grey-light is-flex is-hidden-mobile">
+                <div> TOTAL</div> <div class="ml-2">TIME</div>
+            </div>
+            <div id="time" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+                0:00 m
+            </div>
         </div>
-    </section>
-
-    <section class="is-flex is-flex-direction-column mb-4">
-        <div class="has-text-primary-dark has-text-weight-bold">
-            Track
+        <div class="column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+            <div class="has-text-grey-light is-flex is-hidden-desktop is-hidden-tablet is-justify-content-center is-flex-direction-column is-align-items-center">
+                <div> TOTAL</div> <div>DISTANCE</div>
+            </div>
+            <div class="has-text-grey-light is-flex is-hidden-mobile">
+                <div> TOTAL</div> <div class="ml-2">DISTANCE</div>
+            </div>
+            <div id="distance" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
+                0 m
+            </div>
         </div>
-        <div class="dropdown-divider has-background-grey-light"></div>
-    </section>
+    </div>
+    <div class="is-hidden view-results is-mobile is-flex is-justify-content-center is-align-items-center mb-5">
+        <span data-pointer="true" class="tag has-background-success-dark is-rounded has-text-weight-bold has-text-white	is-size-4 pl-6 pr-6 pt-3 pb-3">View Results</span>
+    </div>
+</section>
 
-    <section class="columns is-multiline is-tab" data-section="player-info">
+<section class="is-flex is-flex-direction-column mb-4">
+    <div class="has-text-primary-dark has-text-weight-bold">
+        Track
+    </div>
+    <div class="dropdown-divider has-background-grey-light"></div>
+</section>
 
-        @foreach (var player in Model.Players)
-        {
+<section class="columns is-multiline is-tab" data-section="player-info">
+
+    @foreach (var player in Model.Players)
+    {
         <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
             <div data-Id='@player.PlayerId' class="is-flex is-flex-direction-row is-justify-content-space-between">
-                
+
                 <div class="is-flex is-flex-direction-row">
                     <div class="has-text-info has-text-weight-bold mr-2">@player.PlayerId</div>
                     <div>@player.PlayerName</div>
@@ -113,150 +117,150 @@
             </div>
             <div class="dropdown-divider has-background-grey-lighter"></div>
         </div>
-        }
+    }
 
-    </section>
+</section>
 
-    <section class="is-flex is-flex-direction-column mb-4">
-        <div class="dropdown-divider has-background-grey-light"></div>
-    </section>
-
-
-    <script>
-        //global variables
-        let interval = null;
-        let shuttleNumber = 0;
-        let speedLevel = 0;
-        let speed = 0;
-
-        //classes to modifiable elements in the dom
-        const startIcon = "start-icon";
-        const startedText = "started-text";
-        const timer = "start-timer";
-        const shuttleData = "shuttle";
-        const totalTimeData = "time";
-        const totalDistanceData = "distance";
-        const levelInTimer = "level-number";
-        const shuttleInTimer = "shuttle-number";
-        const speedInTimer = "speed-number"; 
-        const testCompleted = "test-completed";
-        const testInfo = "test-info";
-        const viewResults = "view-results";
-
-        //Data attributes
-        const playerButtonsAttribuute = '[data-buttons="stage"]';
-                
-        //Class Reference
-        const dropdown = ".dropdown";
-        const stopPlayer = ".stop-player";
-        const warnPlayer = ".warn-player";
-
-        //elements of above classes
-        let startButton = document.getElementsByClassName(timer)[0];
-        let nextShuttle = document.getElementById(shuttleData);
-        let totalTime = document.getElementById(totalTimeData);
-        let totalDistance = document.getElementById(totalDistanceData);
-        let startIconElement = document.getElementsByClassName(startIcon);
-        let startedTextElement = document.getElementsByClassName(startedText)[0];
-        let levelInTimerElement = document.getElementsByClassName(levelInTimer)[0];
-        let shuttleInTimerElement = document.getElementsByClassName(shuttleInTimer)[0];
-        let speedInTimerElement = document.getElementsByClassName(speedInTimer)[0];
-        let testCompletedElement = document.getElementsByClassName(testCompleted)[0];
-        let testInfoElement = document.getElementsByClassName(testInfo)[0];
-        let viewResultsElement = document.getElementsByClassName(viewResults)[0];
-
-        //List of elements
-        let playerButtonsElement = document.querySelectorAll(playerButtonsAttribuute);
-        let dropdownList = document.querySelectorAll(dropdown);
-        let stopPlayerList = document.querySelectorAll(stopPlayer);
-        let warnPlayerList = document.querySelectorAll(warnPlayer);
-
-        //Utility Classes
-        const active = "is-active";
-        const hidden = "is-hidden";
-        const greyedBg = "has-background-grey-light";
-
-        //Text Changes
-        const warned = "Warned"
+<section class="is-flex is-flex-direction-column mb-4">
+    <div class="dropdown-divider has-background-grey-light"></div>
+</section>
 
 
-        //handle dropdown open and close
-        dropdownList.forEach(item => {
-            item.addEventListener('click', event => {
-                event.currentTarget.classList.toggle(active);
-            })
+<script>
+    //global variables
+    let interval = null;
+    let shuttleNumber = 0;
+    let speedLevel = 0;
+    let speed = 0;
+
+    //classes to modifiable elements in the dom
+    const startIcon = "start-icon";
+    const startedText = "started-text";
+    const timer = "start-timer";
+    const shuttleData = "shuttle";
+    const totalTimeData = "time";
+    const totalDistanceData = "distance";
+    const levelInTimer = "level-number";
+    const shuttleInTimer = "shuttle-number";
+    const speedInTimer = "speed-number";
+    const testCompleted = "test-completed";
+    const testInfo = "test-info";
+    const viewResults = "view-results";
+
+    //Data attributes
+    const playerButtonsAttribuute = '[data-buttons="stage"]';
+
+    //Class Reference
+    const dropdown = ".dropdown";
+    const stopPlayer = ".stop-player";
+    const warnPlayer = ".warn-player";
+
+    //elements of above classes
+    let startButton = document.getElementsByClassName(timer)[0];
+    let nextShuttle = document.getElementById(shuttleData);
+    let totalTime = document.getElementById(totalTimeData);
+    let totalDistance = document.getElementById(totalDistanceData);
+    let startIconElement = document.getElementsByClassName(startIcon);
+    let startedTextElement = document.getElementsByClassName(startedText)[0];
+    let levelInTimerElement = document.getElementsByClassName(levelInTimer)[0];
+    let shuttleInTimerElement = document.getElementsByClassName(shuttleInTimer)[0];
+    let speedInTimerElement = document.getElementsByClassName(speedInTimer)[0];
+    let testCompletedElement = document.getElementsByClassName(testCompleted)[0];
+    let testInfoElement = document.getElementsByClassName(testInfo)[0];
+    let viewResultsElement = document.getElementsByClassName(viewResults)[0];
+
+    //List of elements
+    let playerButtonsElement = document.querySelectorAll(playerButtonsAttribuute);
+    let dropdownList = document.querySelectorAll(dropdown);
+    let stopPlayerList = document.querySelectorAll(stopPlayer);
+    let warnPlayerList = document.querySelectorAll(warnPlayer);
+
+    //Utility Classes
+    const active = "is-active";
+    const hidden = "is-hidden";
+    const greyedBg = "has-background-grey-light";
+
+    //Text Changes
+    const warned = "Warned"
+
+
+    //handle dropdown open and close
+    dropdownList.forEach(item => {
+        item.addEventListener('click', event => {
+            event.currentTarget.classList.toggle(active);
         })
+    })
 
-        //handle player warning click
-        stopPlayerList.forEach(item => {
-            item.addEventListener('click', event => {
-                //hide buttons
-                event.currentTarget.parentElement.classList.toggle(hidden);
-                //show dropdown
-                event.currentTarget.parentElement.parentElement.querySelector(dropdown).classList.toggle(hidden);
+    //handle player warning click
+    stopPlayerList.forEach(item => {
+        item.addEventListener('click', event => {
+            //hide buttons
+            event.currentTarget.parentElement.classList.toggle(hidden);
+            //show dropdown
+            event.currentTarget.parentElement.parentElement.querySelector(dropdown).classList.toggle(hidden);
 
-                //check if its the last player that is active
-                let playerInfoElements = Array.from(playerButtonsElement);
-                let deactivatedPlayers = playerInfoElements.filter(elem => elem.className.includes(hidden));
+            //check if its the last player that is active
+            let playerInfoElements = Array.from(playerButtonsElement);
+            let deactivatedPlayers = playerInfoElements.filter(elem => elem.className.includes(hidden));
 
-                //clear interval and modify cirlce
-                if (deactivatedPlayers.length === playerInfoElements.length) {
-                    TestCompleted();
-                }
-            });
+            //clear interval and modify cirlce
+            if (deactivatedPlayers.length === playerInfoElements.length) {
+                TestCompleted();
+            }
         });
+    });
 
-        //handle player stop click
-        warnPlayerList.forEach(item => {
-            item.addEventListener('click', event => {
-                //change colour and text of warn button
-                event.currentTarget.classList.toggle(greyedBg);
-                event.currentTarget.innerText = warned;
-                //remove event and cursor
-                event.currentTarget.style.cursor = 'none';
-                event.currentTarget.style.pointerEvents  = 'none';
-            })
+    //handle player stop click
+    warnPlayerList.forEach(item => {
+        item.addEventListener('click', event => {
+            //change colour and text of warn button
+            event.currentTarget.classList.toggle(greyedBg);
+            event.currentTarget.innerText = warned;
+            //remove event and cursor
+            event.currentTarget.style.cursor = 'none';
+            event.currentTarget.style.pointerEvents = 'none';
         })
+    })
 
-        //On start icon button click
-        startButton.addEventListener('click', event => {
-            ToggleStartIconAndTextVisibility();
+    //On start icon button click
+    //startButton.addEventListener('click', event => {
+    //    ToggleStartIconAndTextVisibility();
 
-            //display button when test is started
-            playerButtonsElement.forEach(item => {
-                item.classList.toggle(hidden);
-            })
+    //    //display button when test is started
+    //    playerButtonsElement.forEach(item => {
+    //        item.classList.toggle(hidden);
+    //    })
 
-            const startTime = new Date().getTime(); //start time of the test
-            interval = setInterval(function () { UpdateTimeAndDistanceData(startTime) }, 1000);
-        });
+    //    const startTime = new Date().getTime(); //start time of the test
+    //    interval = setInterval(function () { UpdateTimeAndDistanceData(startTime) }, 1000);
+    //});
 
-        function UpdateTimeAndDistanceData(startTime) {
-            let presentTime = new Date().getTime();
+    function UpdateTimeAndDistanceData(startTime) {
+        let presentTime = new Date().getTime();
 
-            //set total time
-            let calculatedTime = presentTime - startTime;
-            let minutes = Math.floor((calculatedTime % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((calculatedTime % (1000 * 60)) / 1000);
-            totalTime.innerText = `${minutes}:${seconds} m`
-        }
+        //set total time
+        let calculatedTime = presentTime - startTime;
+        let minutes = Math.floor((calculatedTime % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((calculatedTime % (1000 * 60)) / 1000);
+        totalTime.innerText = `${minutes}:${seconds} m`
+    }
 
-        function UpdateShuttleRelatedData() {
+    function UpdateShuttleRelatedData() {
 
-        }
+    }
 
-        //toggle timer text and icon visibility
-        function ToggleStartIconAndTextVisibility() {
-            startIconElement[0].classList.toggle(hidden);
-            startedTextElement.classList.toggle(hidden);
-        }
+    //toggle timer text and icon visibility
+    function ToggleStartIconAndTextVisibility() {
+        startIconElement[0].classList.toggle(hidden);
+        startedTextElement.classList.toggle(hidden);
+    }
 
-        //ui changes when test is completed
-        function TestCompleted() {
-            clearInterval(interval);
-            startedTextElement.classList.toggle(hidden);
-            testCompletedElement.classList.toggle(hidden);
-            testInfoElement.classList.toggle(hidden);
-            viewResultsElement.classList.toggle(hidden);
-        }
-    </script>
+    //ui changes when test is completed
+    function TestCompleted() {
+        clearInterval(interval);
+        startedTextElement.classList.toggle(hidden);
+        testCompletedElement.classList.toggle(hidden);
+        testInfoElement.classList.toggle(hidden);
+        viewResultsElement.classList.toggle(hidden);
+    }
+</script>
