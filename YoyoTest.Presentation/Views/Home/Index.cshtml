@@ -223,17 +223,17 @@
     })
 
     //On start icon button click
-    //startButton.addEventListener('click', event => {
-    //    ToggleStartIconAndTextVisibility();
+    startButton.addEventListener('click', event => {
+        TestStarted();
 
-    //    //display button when test is started
-    //    playerButtonsElement.forEach(item => {
-    //        item.classList.toggle(hidden);
-    //    })
+        //display button when test is started
+        playerButtonsElement.forEach(item => {
+            item.classList.toggle(hidden);
+        })
 
-    //    const startTime = new Date().getTime(); //start time of the test
-    //    interval = setInterval(function () { UpdateTimeAndDistanceData(startTime) }, 1000);
-    //});
+        const startTime = new Date().getTime(); //start time of the test
+        interval = setInterval(function () { UpdateTimeAndDistanceData(startTime) }, 1000);
+    });
 
     function UpdateTimeAndDistanceData(startTime) {
         let presentTime = new Date().getTime();
@@ -250,9 +250,11 @@
     }
 
     //toggle timer text and icon visibility
-    function ToggleStartIconAndTextVisibility() {
+    function TestStarted() {
         startIconElement[0].classList.toggle(hidden);
         startedTextElement.classList.toggle(hidden);
+        startButton.style.cursor = 'none';
+        startButton.style.pointerEvents = 'none';
     }
 
     //ui changes when test is completed
