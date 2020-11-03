@@ -19,7 +19,7 @@
     border-radius: 50%;
     height: 18rem;
     width: 15rem;
-    background: conic-gradient( #ffffff 0deg, #e25555 1deg 170deg, #ffffff 171deg);
+    /*background: conic-gradient( #ffffff 0deg, #e25555 1deg 170deg, #ffffff 171deg);*/
 }
 
 .is-size-5-custom {

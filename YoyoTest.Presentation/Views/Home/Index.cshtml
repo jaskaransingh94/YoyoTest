@@ -146,6 +146,7 @@
     const testCompleted = "test-completed";
     const testInfo = "test-info";
     const viewResults = "view-results";
+    const circle3 = "circle3";
 
     //Data attributes
     const playerButtonsAttribuute = '[data-buttons="stage"]';
@@ -168,6 +169,7 @@
     let testCompletedElement = document.getElementsByClassName(testCompleted)[0];
     let testInfoElement = document.getElementsByClassName(testInfo)[0];
     let viewResultsElement = document.getElementsByClassName(viewResults)[0];
+    let circle3Element = document.getElementsByClassName(circle3)[0];
 
     //List of elements
     let playerButtonsElement = document.querySelectorAll(playerButtonsAttribuute);
@@ -232,10 +234,10 @@
         })
 
         const startTime = new Date().getTime(); //start time of the test
-        interval = setInterval(function () { UpdateTimeAndDistanceData(startTime) }, 1000);
+        interval = setInterval(function () { UpdateSecondData(startTime) }, 1000);
     });
 
-    function UpdateTimeAndDistanceData(startTime) {
+    function UpdateSecondData(startTime) {
         let presentTime = new Date().getTime();
 
         //set total time
@@ -243,6 +245,10 @@
         let minutes = Math.floor((calculatedTime % (1000 * 60 * 60)) / (1000 * 60));
         let seconds = Math.floor((calculatedTime % (1000 * 60)) / 1000);
         totalTime.innerText = `${minutes}:${seconds} m`
+
+        //update progress bar
+        const calc = (seconds / 5) * 360;
+        circle3Element.style.background = `conic-gradient(#e25555 1deg ${calc}deg, #ffffff ${calc + 1}deg)`;
     }
 
     function UpdateShuttleRelatedData() {
