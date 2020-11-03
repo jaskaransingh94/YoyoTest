@@ -1,7 +1,7 @@
 ﻿
 .circle {
     background: #ffffff;
-    box-shadow: 0rem 0rem 1rem #f7f7f7, 0.5rem 0.5rem 1rem #409a7d;
+    box-shadow: 0rem 0rem 1rem #f7f7f7, 0.5rem 0.5rem 3rem #cbe6de;
     border-radius: 50%;
     height: 11rem;
     width: 11rem;
@@ -12,6 +12,7 @@
     border-radius: 50%;
     height: 15rem;
     width: 13rem;
+    box-shadow: 0 0 0 0.7rem #ffffff;
 }
 
 .circle3 {
