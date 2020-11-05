@@ -77,19 +77,17 @@
         <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
             <div data-Id='@player.PlayerId' class="is-flex is-flex-direction-row is-justify-content-space-between">
 
-                <div class="is-flex is-flex-direction-row">
+                <div data-Id='@player.PlayerId' class="is-flex is-flex-direction-row">
                     <div class="has-text-info has-text-weight-bold mr-2">@player.PlayerId</div>
                     <div>@player.PlayerName</div>
                 </div>
 
-                <div class="is-flex is-hidden" data-buttons="stage">
+                <div data-Id='@player.PlayerId' class="is-flex is-hidden" data-buttons="stage">
                     <span data-pointer="true" class="warn-player tag is-info is-rounded">Warn</span>
                     <span data-pointer="true" class="stop-player tag is-danger is-rounded ml-2">Stop</span>
                 </div>
 
-                <div class="dropdown is-hidden" data-dropdown="score">
- 
-                </div>
+                <div data-Id='@player.PlayerId' class="dropdown is-hidden" data-dropdown="score"></div>
 
             </div>
             <div class="dropdown-divider has-background-grey-lighter"></div>
@@ -136,6 +134,7 @@
 
     //Class Reference
     const dropdown = ".dropdown";
+    const dropdownItem = ".dropdown-item";
     const stopPlayer = ".stop-player";
     const warnPlayer = ".warn-player";
 
@@ -157,6 +156,7 @@
     //List of elements
     let playerButtonsElement = document.querySelectorAll(playerButtonsAttribuute);
     let dropdownList = document.querySelectorAll(dropdown);
+    let dropdownItemList = document.querySelectorAll(dropdownItem);
     let stopPlayerList = document.querySelectorAll(stopPlayer);
     let warnPlayerList = document.querySelectorAll(warnPlayer);
 
@@ -182,6 +182,7 @@
         });
     });
 
+    
     //handle player stop click
     warnPlayerList.forEach(item => {
         item.addEventListener('click', event => {
@@ -191,8 +192,11 @@
             //remove event and cursor
             event.currentTarget.style.cursor = 'none';
             event.currentTarget.style.pointerEvents = 'none';
+
+            let id = event.currentTarget.parentElement.dataset.id;
+            UpdatePlayerDataById(true, false, id, null)
         })
-    })
+    });
 
     //On start icon button click
     startButton.addEventListener('click', event => {
@@ -220,6 +224,9 @@
             if (deactivatedPlayers.length === playerInfoElements.length) {
                 TestCompleted();
             }
+
+            let id = event.currentTarget.parentElement.dataset.id;
+            UpdatePlayerDataById(false, true, id, null)
         });
     });
 
@@ -240,16 +247,40 @@
                             </span>
                         </button>
                     </div>
-                    <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                    <div class="dropdown-menu" role="menu">
                         <div class="dropdown-content">`;
 
-        for (item of newDropdownData)
-            dropdownContent += `<a class="dropdown-item">${item}</a>`;
+        for (item of newDropdownData) {
+            dropdownContent += `<a href="#" onmousedown="UpdatePlayerData(this,'${item}')" class="dropdown-item">${item}</a>`;
+        }
 
         dropdownContent += `</div></div>`;
 
         currentDropdown.innerHTML = dropdownContent;
         currentDropdown.classList.toggle(hidden);
+    }
+
+
+    //can be used for ajax call for updating the data in the db
+    function UpdatePlayerData(element, levelInfo) {
+        let id = element.parentElement.parentElement.parentElement.dataset.id;
+        UpdatePlayerDataById(false, true, id, levelInfo)
+    }
+
+    function UpdatePlayerDataById(isWarn, isStop, Id, levelInfo) {
+        let playerIndex = playerData.findIndex(x => x.playerId == Id);
+
+        if (isWarn) {
+            playerData[playerIndex].isWarned = true;
+        }
+        if (isStop) {
+            let levelData = levelInfo == null ? dropdownData[dropdownData.length - 1].split('-') : levelInfo.split('-');
+            let level = parseInt(levelData[0]);
+            let shuttle = parseInt(levelData[1]);
+            playerData[playerIndex].speedLevel = level;
+            playerData[playerIndex].shuttleNo = shuttle;
+            playerData[playerIndex].isStopped = true;
+        }
     }
 
     function UpdateSecondData(startTime) {
@@ -309,7 +340,7 @@
             dropdownData.includes(content) ? null : dropdownData.push(content);
 
             progressSeconds = 0;
-            circle3Element.style.background = `none`;
+            //circle3Element.style.background = `none`;
             totalDistance.innerText = testData[shuttleCount].accumulatedShuttleDistance + ' m';
         }
     }
