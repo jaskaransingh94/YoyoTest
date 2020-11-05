@@ -31,14 +31,14 @@ namespace YoyoTest.Application.Respository
                 Speed = decimal.Parse(data.Speed),
                 SpeedLevel = int.Parse(data.SpeedLevel),
                 ShuttleNo = int.Parse(data.ShuttleNo),
-                CommulativeTime = FormatTime(data.CommulativeTime),
-                StartTime = FormatTime(data.StartTime),
-                LevelTime = FormatTime(data.LevelTime, true)
+                CommulativeTime = data.CommulativeTime,
+                StartTime = data.StartTime,
+                LevelTime = int.Parse(Math.Round(decimal.Parse(data.LevelTime)).ToString())
             });
 
             //sort data by speed level and shuttle
-            IEnumerable<BeepTestApplicationModel> sotedTestData = formattedTestData.OrderBy(item => item.SpeedLevel).ThenBy(item => item.ShuttleNo);
-            //string data = JsonConvert.SerializeObject(sotedData);
+            IEnumerable<BeepTestApplicationModel> sortedTestData = formattedTestData.OrderBy(item => item.SpeedLevel).ThenBy(item => item.ShuttleNo);
+            string data = JsonConvert.SerializeObject(sortedTestData);
 
             //player data
             IEnumerable<PlayerApplicationModel> formattedPlayerData = _playerRepository.GetPlayers().Select(data => new PlayerApplicationModel
@@ -55,7 +55,7 @@ namespace YoyoTest.Application.Respository
 
             return new BeepTestViewModel()
             {
-                BeepTestRatings = sotedTestData,
+                BeepTestRatings = sortedTestData,
                 Players = sotedPlayerData
             };
         }
@@ -63,11 +63,11 @@ namespace YoyoTest.Application.Respository
         // format to datetime for comparison on client side
         private DateTime FormatTime(string time, bool onlySeconds = false)
         {
-            if (onlySeconds) // format using seconds
-            {
-                string[] secData = time.Split('.');
-                return new DateTime(1, 1, 1, 0, 0, int.Parse(secData[0]));
-            }
+            //if (onlySeconds) // format using seconds
+            //{
+            //    string[] secData = time.Split('.');
+            //    return new DateTime(1, 1, 1, 0, 0, int.Parse(secData[0]));
+            //}
             // format using minutes and seconds
             string[] minSecData = time.Split(':');
             return new DateTime(1, 1, 1, 0, int.Parse(minSecData[0]), int.Parse(minSecData[1]));

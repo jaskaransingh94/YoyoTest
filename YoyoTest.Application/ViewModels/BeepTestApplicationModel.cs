@@ -11,8 +11,8 @@ namespace YoyoTest.Application.ViewModels
         public int SpeedLevel { get; set; }
         public int ShuttleNo { get; set; }
         public decimal Speed { get; set; }
-        public DateTime LevelTime { get; set; }
-        public DateTime CommulativeTime { get; set; }
-        public DateTime StartTime { get; set; }
+        public int LevelTime { get; set; }
+        public string CommulativeTime { get; set; }
+        public string StartTime { get; set; }
     }
 }

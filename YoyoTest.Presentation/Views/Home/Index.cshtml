@@ -9,9 +9,9 @@
             <div data-pointer="true" class="start-timer column is-10-widescreen is-11-desktop is-10-tablet circle is-flex is-justify-content-center is-align-items-center">
             <i class="start-icon fas fa-play is-size-5-custom has-text-primary-dark"></i>
             <div class="is-hidden started-text is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
-                <div class="level-number has-text-info mb-2 is-size-5">Level 12</div>
-                <div class="shuttle-number has-text-info mb-2 is-size-5">Shuttle 5</div>
-                <div class="speed-number has-text-black mb-2 is-size-5">14 km/h</div>
+                <div class="level-number has-text-info mb-2 is-size-5"></div>
+                <div class="shuttle-number has-text-info mb-2 is-size-5"></div>
+                <div class="speed-number has-text-black mb-2 is-size-5"></div>
             </div>
             <div class="is-hidden test-completed is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
                 <div class="has-text-danger is-size-5 has-text-weight-bold">Test</div>
@@ -32,7 +32,7 @@
                 <div> NEXT</div> <div class="ml-2">SHUTTLE</div>
             </div>
             <div id="shuttle" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
-                0:00 s
+                00:00 s
             </div>
         </div>
         <div class="vertical-divider column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
@@ -43,7 +43,7 @@
                 <div> TOTAL</div> <div class="ml-2">TIME</div>
             </div>
             <div id="time" class="has-text-primary-dark is-size-1-2 whitespace-wrap">
-                0:00 m
+                00:00 m
             </div>
         </div>
         <div class="column is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
@@ -127,11 +127,16 @@
 
 
 <script>
+    //Models
+    let testData = @Html.Raw(Json.Serialize(@Model.BeepTestRatings));
+    let playerData = @Html.Raw(Json.Serialize(@Model.Players));
+    
+
     //global variables
     let interval = null;
-    let shuttleNumber = 0;
-    let speedLevel = 0;
-    let speed = 0;
+    let shuttleCount = 0;
+    let isTestStarted = false;
+    let currentShuttleTime = 0;
 
     //classes to modifiable elements in the dom
     const startIcon = "start-icon";
@@ -241,18 +246,48 @@
         let presentTime = new Date().getTime();
 
         //set total time
-        let calculatedTime = presentTime - startTime;
-        let minutes = Math.floor((calculatedTime % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((calculatedTime % (1000 * 60)) / 1000);
-        totalTime.innerText = `${minutes}:${seconds} m`
+        let totalCalculatedTime = presentTime - startTime;
+        let totalMinutes = Math.floor((totalCalculatedTime % (1000 * 60 * 60)) / (1000 * 60));
+        let totalSeconds = Math.floor((totalCalculatedTime % (1000 * 60)) / 1000);
 
-        //update progress bar
-        const calc = (seconds / 5) * 360;
-        circle3Element.style.background = `conic-gradient(#e25555 1deg ${calc}deg, #ffffff ${calc + 1}deg)`;
+        let totalDisplayMinutes = totalMinutes < 10 ? `0${totalMinutes}` : totalMinutes;
+        let totalDisplaySeconds = totalSeconds < 10 ? `0${totalSeconds}` : totalSeconds;
+        let totalDisplayTime = `${totalDisplayMinutes}:${totalDisplaySeconds}`;
+
+        totalTime.innerText = `${totalDisplayTime} m`;
+
+        if (!isTestStarted) {
+            isTestStarted = true;
+            SetShuttleData();
+        }
+
+        UpdateShuttleData(totalDisplayTime);
     }
 
-    function UpdateShuttleRelatedData() {
+    function UpdateShuttleData(currentTime) {
+        let nextShuttleStartTime = testData[shuttleCount + 1].startTime;
 
+        if (currentTime === nextShuttleStartTime) {
+            ++shuttleCount;
+            SetShuttleData();
+        }
+
+        let updatedCurrentShuttleTime = --currentShuttleTime;
+        let totalShuttleDisplaySeconds = currentShuttleTime < 10 ? `0${updatedCurrentShuttleTime}` : updatedCurrentShuttleTime;
+        nextShuttle.innerText = `00:${totalShuttleDisplaySeconds} s`;
+
+        //update progress bar
+        //const calc = (totalSeconds / 100) * 360;
+        //circle3Element.style.background = `conic-gradient(#e25555 1deg ${calc}deg, #ffffff ${calc + 1}deg)`;
+
+    }
+
+    function SetShuttleData() {
+        currentShuttleTime = testData[shuttleCount].levelTime;
+        levelInTimerElement.innerText = 'Level ' + testData[shuttleCount].speedLevel;
+        shuttleInTimerElement.innerText = 'Shuttle ' + testData[shuttleCount].shuttleNo;
+        speedInTimerElement.innerText = testData[shuttleCount].speed + ' km/h';
+        debugger
     }
 
     //toggle timer text and icon visibility
