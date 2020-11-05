@@ -59,18 +59,5 @@ namespace YoyoTest.Application.Respository
                 Players = sotedPlayerData
             };
         }
-
-        // format to datetime for comparison on client side
-        private DateTime FormatTime(string time, bool onlySeconds = false)
-        {
-            //if (onlySeconds) // format using seconds
-            //{
-            //    string[] secData = time.Split('.');
-            //    return new DateTime(1, 1, 1, 0, 0, int.Parse(secData[0]));
-            //}
-            // format using minutes and seconds
-            string[] minSecData = time.Split(':');
-            return new DateTime(1, 1, 1, 0, int.Parse(minSecData[0]), int.Parse(minSecData[1]));
-        }
     }
 }

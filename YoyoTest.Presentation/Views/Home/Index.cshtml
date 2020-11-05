@@ -131,8 +131,6 @@
     let testData = @Html.Raw(Json.Serialize(@Model.BeepTestRatings));
     let playerData = @Html.Raw(Json.Serialize(@Model.Players));
 
-    testData.length = 2;
-
     //global variables
     let interval = null;
     let shuttleCount = 0;
@@ -281,11 +279,11 @@
                 TestCompleted();
                 return;
             }
-
             ++shuttleCount;
             SetShuttleData();
         }
 
+        // only update ui if a shuttle is in progress 
         if (currentShuttleTime != 0) {
             let updatedCurrentShuttleTime = --currentShuttleTime;
             let totalShuttleDisplaySeconds = currentShuttleTime < 10 ? `0${updatedCurrentShuttleTime}` : updatedCurrentShuttleTime;
