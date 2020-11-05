@@ -264,6 +264,7 @@
     //can be used for ajax call for updating the data in the db
     function UpdatePlayerData(element, levelInfo) {
         let id = element.parentElement.parentElement.parentElement.dataset.id;
+        element.parentElement.parentElement.previousElementSibling.firstElementChild.firstElementChild.innerText = levelInfo;
         UpdatePlayerDataById(false, true, id, levelInfo)
     }
 
