@@ -130,7 +130,8 @@
     //Models
     let testData = @Html.Raw(Json.Serialize(@Model.BeepTestRatings));
     let playerData = @Html.Raw(Json.Serialize(@Model.Players));
-    
+
+    testData.length = 2;
 
     //global variables
     let interval = null;
@@ -244,6 +245,11 @@
     });
 
     function UpdateSecondData(startTime) {
+        if (!isTestStarted) {
+            SetShuttleData();
+            isTestStarted = true;
+        }
+
         let presentTime = new Date().getTime();
 
         //set total time
@@ -257,19 +263,25 @@
 
         totalTime.innerText = `${totalDisplayTime} m`;
 
-        if (!isTestStarted) {
-            SetShuttleData();
-            isTestStarted = true;
-        }
-
         UpdateShuttleData(totalDisplayTime);
     }
 
     function UpdateShuttleData(currentTime) {
-        let nextShuttleStartTime = testData[shuttleCount + 1].startTime;
+        let nextShuttleStartTime = null;
         let shuttleTotalTime = testData[shuttleCount].levelTime;
+        
+        //check end of test
+        if (shuttleCount + 1 === testData.length)
+            nextShuttleStartTime = testData[shuttleCount].commulativeTime;
+        else
+            nextShuttleStartTime = testData[shuttleCount + 1].startTime;
 
         if (currentTime === nextShuttleStartTime) {
+            if (shuttleCount + 1 === testData.length) { //check if its the last shuttle end the test
+                TestCompleted();
+                return;
+            }
+
             ++shuttleCount;
             SetShuttleData();
         }
