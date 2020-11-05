@@ -137,6 +137,7 @@
     let shuttleCount = 0;
     let isTestStarted = false;
     let currentShuttleTime = 0;
+    let progressSeconds = 0;
 
     //classes to modifiable elements in the dom
     const startIcon = "start-icon";
@@ -257,8 +258,8 @@
         totalTime.innerText = `${totalDisplayTime} m`;
 
         if (!isTestStarted) {
-            isTestStarted = true;
             SetShuttleData();
+            isTestStarted = true;
         }
 
         UpdateShuttleData(totalDisplayTime);
@@ -266,20 +267,27 @@
 
     function UpdateShuttleData(currentTime) {
         let nextShuttleStartTime = testData[shuttleCount + 1].startTime;
+        let shuttleTotalTime = testData[shuttleCount].levelTime;
 
         if (currentTime === nextShuttleStartTime) {
             ++shuttleCount;
             SetShuttleData();
         }
 
-        let updatedCurrentShuttleTime = --currentShuttleTime;
-        let totalShuttleDisplaySeconds = currentShuttleTime < 10 ? `0${updatedCurrentShuttleTime}` : updatedCurrentShuttleTime;
-        nextShuttle.innerText = `00:${totalShuttleDisplaySeconds} s`;
+        if (currentShuttleTime != 0) {
+            let updatedCurrentShuttleTime = --currentShuttleTime;
+            let totalShuttleDisplaySeconds = currentShuttleTime < 10 ? `0${updatedCurrentShuttleTime}` : updatedCurrentShuttleTime;
+            nextShuttle.innerText = `00:${totalShuttleDisplaySeconds} s`;
 
-        //update progress bar
-        //const calc = (totalSeconds / 100) * 360;
-        //circle3Element.style.background = `conic-gradient(#e25555 1deg ${calc}deg, #ffffff ${calc + 1}deg)`;
-
+            //update progress bar
+            const progress = (++progressSeconds / shuttleTotalTime) * 360;
+            circle3Element.style.background = `conic-gradient(#e25555 1deg ${progress}deg, #ffffff ${progress + 1}deg)`;
+        }
+        else {
+            progressSeconds = 0;
+            circle3Element.style.background = `none`;
+            totalDistance.innerText = testData[shuttleCount].accumulatedShuttleDistance + ' m';
+        }
     }
 
     function SetShuttleData() {
@@ -287,7 +295,6 @@
         levelInTimerElement.innerText = 'Level ' + testData[shuttleCount].speedLevel;
         shuttleInTimerElement.innerText = 'Shuttle ' + testData[shuttleCount].shuttleNo;
         speedInTimerElement.innerText = testData[shuttleCount].speed + ' km/h';
-        debugger
     }
 
     //toggle timer text and icon visibility
