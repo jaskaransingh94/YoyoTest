@@ -88,30 +88,7 @@
                 </div>
 
                 <div class="dropdown is-hidden" data-dropdown="score">
-                    <div class="dropdown-trigger">
-                        <button class="button is-shadowless" aria-haspopup="true" aria-controls="dropdown-menu3">
-                            <span>11-3</span>
-                            <span class="icon is-small">
-                                <i class="fas fa-angle-down" aria-hidden="true"></i>
-                            </span>
-                        </button>
-                    </div>
-                    <div class="dropdown-menu" id="dropdown-menu3" role="menu">
-                        <div class="dropdown-content">
-                            <a href="#" class="dropdown-item">
-                                18-9
-                            </a>
-                            <a href="#" class="dropdown-item">
-                                16-3
-                            </a>
-                            <a href="#" class="dropdown-item">
-                                20-3
-                            </a>
-                            <a href="#" class="dropdown-item">
-                                9-3
-                            </a>
-                        </div>
-                    </div>
+ 
                 </div>
 
             </div>
@@ -137,6 +114,7 @@
     let isTestStarted = false;
     let currentShuttleTime = 0;
     let progressSeconds = 0;
+    let dropdownData = ["0-0"];
 
     //classes to modifiable elements in the dom
     const startIcon = "start-icon";
@@ -198,22 +176,9 @@
         })
     })
 
-    //handle player warning click
-    stopPlayerList.forEach(item => {
-        item.addEventListener('click', event => {
-            //hide buttons
-            event.currentTarget.parentElement.classList.toggle(hidden);
-            //show dropdown
-            event.currentTarget.parentElement.parentElement.querySelector(dropdown).classList.toggle(hidden);
-
-            //check if its the last player that is active
-            let playerInfoElements = Array.from(playerButtonsElement);
-            let deactivatedPlayers = playerInfoElements.filter(elem => elem.className.includes(hidden));
-
-            //clear interval and modify cirlce
-            if (deactivatedPlayers.length === playerInfoElements.length) {
-                TestCompleted();
-            }
+    dropdownList.forEach(item => {
+        item.addEventListener('focusout', (event) => {
+            event.currentTarget.classList.toggle(active);
         });
     });
 
@@ -242,6 +207,51 @@
         interval = setInterval(function () { UpdateSecondData(startTime) }, 1000);
     });
 
+    //handle player warning click
+    stopPlayerList.forEach(item => {
+        item.addEventListener('click', event => {
+            PrepareDropdownAndHideButtons(event);
+
+            //check if its the last player that is active
+            let playerInfoElements = Array.from(playerButtonsElement);
+            let deactivatedPlayers = playerInfoElements.filter(elem => elem.className.includes(hidden));
+
+            //clear interval and modify cirlce
+            if (deactivatedPlayers.length === playerInfoElements.length) {
+                TestCompleted();
+            }
+        });
+    });
+
+    function PrepareDropdownAndHideButtons(event) {
+        //hide buttons
+        event.currentTarget.parentElement.classList.toggle(hidden);
+        //show dropdown
+        let currentDropdown = event.currentTarget.parentElement.parentElement.querySelector(dropdown);
+
+        let newDropdownData = [...dropdownData];
+        newDropdownData.reverse();
+
+        let dropdownContent = `<div class="dropdown-trigger">
+                        <button class="button is-shadowless" aria-haspopup="true" aria-controls="dropdown-menu3">
+                            <span>${newDropdownData[0]}</span>
+                            <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                        <div class="dropdown-content">`;
+
+        for (item of newDropdownData)
+            dropdownContent += `<a class="dropdown-item">${item}</a>`;
+
+        dropdownContent += `</div></div>`;
+
+        currentDropdown.innerHTML = dropdownContent;
+        currentDropdown.classList.toggle(hidden);
+    }
+
     function UpdateSecondData(startTime) {
         if (!isTestStarted) {
             SetShuttleData();
@@ -267,7 +277,7 @@
     function UpdateShuttleData(currentTime) {
         let nextShuttleStartTime = null;
         let shuttleTotalTime = testData[shuttleCount].levelTime;
-        
+
         //check end of test
         if (shuttleCount + 1 === testData.length)
             nextShuttleStartTime = testData[shuttleCount].commulativeTime;
@@ -294,6 +304,10 @@
             circle3Element.style.background = `conic-gradient(#e25555 1deg ${progress}deg, #ffffff ${progress + 1}deg)`;
         }
         else {
+            //prepare dropdown after level finishes
+            let content = `${testData[shuttleCount].speedLevel}-${testData[shuttleCount].shuttleNo}`;
+            dropdownData.includes(content) ? null : dropdownData.push(content);
+
             progressSeconds = 0;
             circle3Element.style.background = `none`;
             totalDistance.innerText = testData[shuttleCount].accumulatedShuttleDistance + ' m';
@@ -318,6 +332,7 @@
     //ui changes when test is completed
     function TestCompleted() {
         clearInterval(interval);
+        circle3Element.style.background = `none`;
         startedTextElement.classList.toggle(hidden);
         testCompletedElement.classList.toggle(hidden);
         testInfoElement.classList.toggle(hidden);
